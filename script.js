@@ -32,7 +32,8 @@ window.addEventListener("load", () => {
         className: 'follower-hover',
         width: "100px",
         height: "40px",
-        position: "20% 50%"
+        position: "20% 50%",
+        particles: null
     });
 
     gsap.registerPlugin(ScrollTrigger);
