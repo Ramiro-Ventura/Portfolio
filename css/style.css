@@ -233,17 +233,30 @@
 
 
 
-.planets-section{
+.follower{
 
-    position: relative;
+    border-radius: 20px;
+    background-color: white;
+    transition: width .4s, height .4s, margin-left .4s, margin-top .4s;
     display: flex;
     align-items: center;
     justify-content: center;
+    mix-blend-mode: difference;
 }
 
-.planets-section > img{
+.follower-hover{
 
-    width: 100px;
+    mix-blend-mode: normal;
+    background-color: white;
+}
+
+.follower-hover::after{
+
+    content: 'VIEW';
+    color: black;
+    font-weight: 700;
+    transition: 0.3s;
+
 }
 
 

@@ -2,22 +2,50 @@ window.addEventListener("load", () => {
 
     SetCurrentAge();
 
+
+    let cursor = new MagicCursor({
+        delay: 0.15,
+        className: "follower",
+        position: "50% 50%",
+    });
+
+    cursor.addParticles({
+
+        shape: {a: 'R', b: 'V'},
+        baseSize: [10, 20],
+        finalSize: [1, 5],
+        gravity: -0.05,
+        friction: 0.96,
+        rotation: [-20, 20],
+        spin: [-0.05, 0.05],
+        speedMultiplier: 2,
+        spawnDistance: 80,
+        spawnChance: 1,
+        decay: 0.005,
+        colors: ['#d1d1d1', '#292929']
+    });
+
+    cursor.onHover({
+
+        selector: '.work-project-container',
+        cursor: 'pointer',
+        className: 'follower-hover',
+        width: "100px",
+        height: "40px",
+        position: "20% 50%"
+    });
+
     gsap.registerPlugin(ScrollTrigger);
 
     const lenis = new Lenis();
 
     lenis.on("scroll", ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-    });
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
 
     gsap.ticker.lagSmoothing(0);
 
-
     HeroAnimations(gsap);
-
-
 
     const workTimeline = gsap.timeline({
         scrollTrigger: {
@@ -43,24 +71,17 @@ window.addEventListener("load", () => {
 
         if (index !== workProjectsContainers.length - 1)
             workTimeline.to(project, { scale: 0.7 });
-        else 
-            workTimeline.to(workProjectsContainers, { yPercent: -105 });
-
-        lastProject = project;
+        /*else 
+            workTimeline.to(workProjectsContainers, { yPercent: -105 });*/
 
     });
 
-    workTimeline.set(".work-word", { yPercent: -100, duration: 0 }, "<");
-    workTimeline.to(".work-word", { rotateX: "180deg", opacity: 1, z: 0, ease: "none"}, "<");
+    //workTimeline.set(".work-word", { yPercent: -100, duration: 0 }, "<");
+    //workTimeline.to(".work-word", { rotateX: "180deg", opacity: 1, z: 0, ease: "none"}, "<");
+
+    workTimeline.set(".work-word", { scale: 0, opacity: 0, duration: 0 }, "<")
 
     workTimeline.to("body", {backgroundColor: primaryColor, duration: 0.2 }, "<");
-
-
-    /*workTimeline.to(".work-project-container", {
-        y: 0,
-        ease: "none",
-        stagger: 0.5 // This ensures project 2 starts halfway through project 1
-    });*/
 
 });
 
@@ -104,7 +125,6 @@ function HeroAnimations(gsap){
     });
 }
 
-
 const SetCurrentAge = () => {
 
     let ageSpan = document.querySelector("#age-span");
@@ -120,25 +140,7 @@ const SetCurrentAge = () => {
 
 }
 
-
 const Reverse = (number) => number * -1;
-
-function GenerateCats(parent){
-    let coordinates = [["97%","47%"], ["93%","82%"], ["14%","20%"], ["68%","96%"], ["55%","53%"], ["26%","33%"], ["87%","15%"], ["75%","63%"], ["20%","77%"], ["32%","94%"], ["44%","22%"], ["55%","85%"], ["36%","56%"], ["70%","30%",]];
-
-    for(let c = 0; c < 14; c++){
-
-        let left = coordinates[c][0];
-        let top = coordinates[c][1];
-
-        let catImg = document.createElement("img");
-        catImg.src = `assets/cat_${c + 1}.png`;
-        catImg.style.left = `${left}`;
-        catImg.style.top = `${top}`;
-        catImg.draggable = false;
-        parent.appendChild(catImg);
-    }
-}
 
 /**
  * Generates a random floating-point number between min (inclusive) and max (exclusive).
