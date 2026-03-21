@@ -15,10 +15,16 @@
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <script src="/new-portfolio/script.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/gh/Ramiro-Ventura/Magic-Cursor@latest/magic-cursor.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/Ramiro-Ventura/Magic-Cursor@latest/magic-cursor.js"></script> -->
+    <script src="magic-cursor.js"></script>
 
 </head>
 <body>    
+
+
+    <div class="follower" id="follower">
+        <p></p>
+    </div>
 
     <section class="hero-section">
 
@@ -104,7 +110,7 @@
 
                         <div class="about-me-image-wrapper">
                             <img class="about-me-image" src="/new-portfolio/assets/hobbies.jpg" alt="">
-                            <p class="about-me-image-text">Tu ru ru rum...<br>Do I wanna know</p>
+                            <p class="about-me-image-text">Tu ru ru rum...</p>
                         </div>
 
                     </div>
@@ -165,7 +171,38 @@
 
     </section>
 
-    <section></section>
+    <section class="contacts-section">
+
+        <div class="contacts-containers-wraper">
+            
+            <div class="contact-container" data-name="github">
+                <div class="container-magnetic-object"><img src="https://img.icons8.com/glyph-neue/96/github.png" alt=""></div>
+                <div class="contact-text-wrapper github">
+                    <p class="contact-text">GitHub</p>
+                    <div class="contact-text-underline"></div>
+                </div>
+                <p class="contact-value">github.com/Ramiro-Ventura</p>
+            </div>
+
+            <div class="contact-container" data-name="linkedin">
+                <div class="container-magnetic-object"><img src="https://img.icons8.com/ios-filled/96/linkedin.png" alt=""></div>
+                <div class="contact-text-wrapper linkedin">
+                    <p class="contact-text">Linkedin</p>
+                    <div class="contact-text-underline"></div>
+                </div>            
+                <p class="contact-value">linkedin.com/in/ramiro-ventura</p>
+            </div>
+
+            <div class="contact-container" data-name="email">
+                <div class="container-magnetic-object"><img src="https://img.icons8.com/ios-glyphs/96/email.png" alt=""></div>
+                <div class="contact-text-wrapper email">
+                    <p class="contact-text">Email</p>
+                    <div class="contact-text-underline"></div>
+                </div>
+                <p class="contact-value">ramiro.herlander.ventura@gmail.com</p>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
