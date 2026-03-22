@@ -11,19 +11,56 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
     <script src="https://unpkg.com/split-type"></script>
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <script src="/new-portfolio/script.js"></script>
 
     <!-- <script src="https://cdn.jsdelivr.net/gh/Ramiro-Ventura/Magic-Cursor@latest/magic-cursor.js"></script> -->
     <script src="magic-cursor.js"></script>
+    <script src="physics-engine.js"></script>
 
 </head>
-<body>    
+<body class="scroll-container-hide">    
 
 
-    <div class="follower" id="follower">
-        <p></p>
+    <div class="follower" id="follower"><p></p></div>
+
+    <div class="menu-btn" data-status="close" onclick="MenuAnimations(this)">
+        <div class="menu-btn-stoke"></div>
+        <div class="menu-btn-stoke"></div>
+        <div class="menu-btn-stoke"></div>
+    </div>
+
+    <div class="menu-container">
+
+        <div class="menu-animation-container">
+            <div class="menu-animation-columns-container">
+                <div class="menu-animation-column menu-animation-column-top"></div>
+                <div class="menu-animation-column menu-animation-column-top"></div>
+                <div class="menu-animation-column menu-animation-column-top"></div>
+                <div class="menu-animation-column menu-animation-column-top"></div>
+                <div class="menu-animation-column menu-animation-column-top"></div>
+                <div class="menu-animation-column menu-animation-column-top"></div>
+            </div>
+
+            <div class="menu-animation-columns-container">
+                <div class="menu-animation-column menu-animation-column-bottom"></div>
+                <div class="menu-animation-column menu-animation-column-bottom"></div>
+                <div class="menu-animation-column menu-animation-column-bottom"></div>
+                <div class="menu-animation-column menu-animation-column-bottom"></div>
+                <div class="menu-animation-column menu-animation-column-bottom"></div>
+                <div class="menu-animation-column menu-animation-column-bottom"></div>
+            </div>
+        </div>
+
+        <div class="menu-content-container">
+            <p class="menu-links">HOME</p>
+            <p class="menu-links">ABOUT ME</p>
+            <p class="menu-links">WORK</p>
+            <p class="menu-links">CONTACT ME</p>
+        </div>
+
     </div>
 
     <section class="hero-section">
@@ -46,42 +83,27 @@
 
                         <div class="about-me-text-container">
                             <h2 class="about-me-title">😁 Who am I?</h2>
-                            <p class="about-me-text">Hello 👋, my name is Ramiro Ventura.<br><br>I’m a <span id="age-span"></span>-year-old <u>creative</u> and <u>technical</u> <u>Full-Stack developer</u>.<br><br>I consider myself <u>introverted</u>, <u>curious</u>, <u>patient</u>, <u>creative</u>, <u>fast learning</u> and i'm always hunger for more knowledge especially in the fields of <u>technology</u>, <u>programming</u>, <u>music</u> or anything really.<br><br>I take pride in my work and always give my best and the only thing I really dislike is having my creativity suppressed.</p>
-                        </div>
-
-                        <div class="about-me-text-container">
-                            <h2 class="about-me-title">🧪 Professional Experience</h2>
-                            <p class="about-me-text">   During my amateur coder journey, I develop Android apps, learnt Unity 2D /3D, created Windows apps in Visual Studio, and then I learned web development and began to organize and prototype full-stack apps for the web.
-                                                        <br><br>As part of my TGPSI course, I completed an internship at Reloading, where I worked with technologies like PHP, JS, SQL, and ASP.NET to develop an internal CRM for managing job proposals.
-                                                        <br><br>More recently, I worked at VTXRM as a Technical Consultant. My role involved integrating APIs using C# and ASP.NET for an application developed for our client, Volkswagen UK.</p>
+                            <div class="about-me-text">Hello 👋, my name is <b>Ramiro Ventura</b>.<br><br>I’m a <span id="age-span"></span>-year-old creative and technical <b>Full-Stack developer</b>.<br><br>I consider myself <b>introverted, curious, patient, creative, fast learning</b> and i'm always hunger for more knowledge especially in the fields of technology, programming, music or anything really.<br><br>I take pride in my <b>work</b> and always give my <b>best</b> and the only thing I really dislike is having my <b>creativity</b> suppressed.</div>
                         </div>
 
                         <div class="about-me-text-container">
                             <h2 class="about-me-title">📐 Education</h2>
-                            <div class="about-me-text">   In 2022, I completed the TGPSI course (Level IV EU Framework) at EPED where I learned with the best teachers I have ever had. 
-                                                        <br><br>I developed a strong foundation in C#, PHP, JavaScript, and SQL, alongside design tools like Photoshop.
-                                                        <br><br>My experience includes diverse projects such as:
-                                                        <ul>
-                                                            <li class="ml-l"><p><b>Infrastructure:</b> Planning and building a server-ready space.</p></li>
-                                                            <li class="ml-l"><p><b>Web Development:</b> Creating a full product with a website, database, and back office.</p></li>
-                                                            <li class="ml-l"><p><b>Creative Design:</b> Designing the logo for the school's psychology department.</p></li>
-                                                        </ul>
-                            </div>
+                            <div class="about-me-text">In <b>2022</b>, I completed the <b>TGPSI</b> course (Level IV EU Framework) at <b>EPED</b> where I learned with the best teachers I have ever had. <br><br>I developed a strong foundation in <b>C#, PHP, JavaScript,</b> and <b>SQL</b>, alongside design tools like <b>Photoshop</b>.<br><br>My <b>experience</b> includes diverse <b>projects</b> such as:<ul><li class="ml-l"><p><b>Infrastructure:</b> Planning and building a server-ready space.</p></li><li class="ml-l"><p><b>Web Development:</b> Creating a full product with a website, database, and back office.</p></li><li class="ml-l"><p><b>Creative Design:</b> Designing the logo for the school's psychology department.</p></li></ul></div>
+                        </div>
 
+                        <div class="about-me-text-container">
+                            <h2 class="about-me-title">💻 Professional Experience</h2>
+                            <div class="about-me-text">During my amateur coder journey, I develop <b>Android Apps</b>, learnt <b>Unity 2D /3D</b>, create <b>Windows Apps</b> in Visual Studio, and then I learned <b>Web Development</b> and began to organize and prototype <b>Full-Stack Apps</b> for the web.<br><br>As part of my <b>TGPSI</b> course, I completed an <b>internship</b> at Reloading, where I worked with technologies like <b>C#, CSS, PHP, JS, SQL, and ASP.NET</b> to develop an internal CRM for managing job proposals.<br><br>More recently, I worked at <b>VTXRM</b> as a <b>Technical Consultant</b>. My role involved integrating APIs using <b>C#</b> and <b>ASP.NET</b> for an application developed for our client, <b>Volkswagen UK</b>.</div>
                         </div>
 
                         <div class="about-me-text-container">
                             <h2 class="about-me-title">🏆 Distinctions and Awards</h2>
-                            <p class="about-me-text">   Throughout my academic journey, I received two scholarships for academic excellence in 10th and 11th grade as well as two Merit Student Awards.
-                                                        <br><br>I also participated in the 2nd National Championship of Digital Professions – SkillsPortugal Digital 2022, 
-                                                        in the category of Enterprise Computer Applications Development, held from May 2 to 16, 2022.</p>
+                            <div class="about-me-text">Throughout my academic journey, I received <b>2 scholarships</b> for <b>academic excellence</b> in <b>10th</b> and <b>11th</b> grade as well as <b>2 Merit Student Awards</b>.<br><br>I also participated in the <b>2nd National Championship of Digital Professions</b> – SkillsPortugal Digital 2022, in the category of <b>Enterprise Computer Applications Development</b>, held from May 2 to 16, 2022.</div>
                         </div>
 
                         <div class="about-me-text-container">
                             <h2 class="about-me-title">🎸 Interests and Hobbies</h2>
-                            <p class="about-me-text">   I'm passionate about pop culture, from music to movies and series.
-                                                        <br><br>I enjoy playing electric guitar, solving the Rubik's Cube, and reading, but what I really like is to project and develop full-stack apps as well develop some fun tools.
-                                                        <br><br>I love water sports, I hate running, and I like to think about how I would solve modern-day issues.</p>
+                            <div class="about-me-text">I'm passionate about <b>pop culture</b>, from music to movies and series.<br><br>I enjoy playing <b>electric guitar</b>, solving the <b>Rubik's Cube</b>, and <b>reading</b>, but what I really like is to project and develop <b>Full-Stack Apps</b> as well develop some fun tools.<br><br>I love water sports like <b>Bodyboard</b>, I hate running, and I like to think about how I would solve modern-day issues.</div>
                         </div>
 
                     </div>
@@ -94,13 +116,13 @@
                         </div>
 
                         <div class="about-me-image-wrapper">
-                            <img class="about-me-image" src="/new-portfolio/assets/work.jpg" alt="">
-                            <p class="about-me-image-text">Coffee. Code. Debug. Repeat.</p>
+                            <img class="about-me-image object-position-left" src="/new-portfolio/assets/eped.jpg" alt="">
+                            <p class="about-me-image-text">My School</p>
                         </div>
 
                         <div class="about-me-image-wrapper">
-                            <img class="about-me-image object-position-left" src="/new-portfolio/assets/eped.jpg" alt="">
-                            <p class="about-me-image-text">My School</p>
+                            <img class="about-me-image" src="/new-portfolio/assets/work.jpg" alt="">
+                            <p class="about-me-image-text">Coffee. Code. Debug. Repeat.</p>
                         </div>
 
                         <div class="about-me-image-wrapper">
@@ -122,12 +144,11 @@
 
     </section>
 
-
     <section class="work-section">
 
         <div class="work-word">
                 <svg viewBox="0 0 100 20" width="100%" height="100%" preserveAspectRatio="none">
-                    <text class="work-word-text" style="fill: rgb(255, 131, 224);"
+                    <text class="work-word-text"
                     x="0"
                     y="15"
                     font-family="Arial, sans-serif"
@@ -171,6 +192,12 @@
 
     </section>
 
+    <section class="tools-section">
+
+        <h2 class="tools-section-title">Tools I Use</h2>
+
+    </section>
+
     <section class="contacts-section">
 
         <div class="contacts-containers-wraper">
@@ -181,7 +208,7 @@
                     <p class="contact-text">GitHub</p>
                     <div class="contact-text-underline"></div>
                 </div>
-                <p class="contact-value">github.com/Ramiro-Ventura</p>
+                <div class="contact-value">github.com/Ramiro-Ventura</div>
             </div>
 
             <div class="contact-container" data-name="linkedin">
@@ -190,16 +217,16 @@
                     <p class="contact-text">Linkedin</p>
                     <div class="contact-text-underline"></div>
                 </div>            
-                <p class="contact-value">linkedin.com/in/ramiro-ventura</p>
+                <div class="contact-value">linkedin.com/in/ramiro-ventura</div>
             </div>
 
             <div class="contact-container" data-name="email">
-                <div class="container-magnetic-object"><img src="https://img.icons8.com/ios-glyphs/96/email.png" alt=""></div>
+                <div class="container-magnetic-object"><img src="https://img.icons8.com/ios-filled/96/gmail-new.png" alt=""></div>
                 <div class="contact-text-wrapper email">
                     <p class="contact-text">Email</p>
                     <div class="contact-text-underline"></div>
                 </div>
-                <p class="contact-value">ramiro.herlander.ventura@gmail.com</p>
+                <div class="contact-value">ramiro.herlander.ventura@gmail.com</div>
             </div>
         </div>
     </section>
