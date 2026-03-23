@@ -119,6 +119,12 @@
     font-weight: 800;
 }
 
+.about-me-text-chars{
+
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
 .about-me-images-container{
 
     position: relative;
@@ -199,6 +205,7 @@
     stroke-width: 1px;
     stroke-linecap: round;
     stroke-linejoin: round;
+
 }
 
 .work-project-container{
@@ -211,6 +218,7 @@
     background-repeat: no-repeat;
     transform: translateY(110%);
     overflow: hidden;
+    will-change: transform;
 }
 
 .work-project-container-overlay{
@@ -291,6 +299,17 @@
     flex-direction: column;
     padding: var(--space-xl);
 
+}
+
+.contacts-title{
+
+    position: relative;
+    transform: translateY(-100%);
+    top: 50%;
+    opacity: 0;
+    font-size: 5rem;
+    font-weight: 800;
+    
 }
 
 .contacts-containers-wraper{
@@ -379,7 +398,6 @@
     border-radius: 2px;
 }
 
-
 .menu-container{
 
     display: none;
@@ -457,7 +475,7 @@
     align-items: center;
     justify-content: center;
     mix-blend-mode: difference;
-    z-index: 5;
+    z-index: 7;
 }
 
 .follower-hover{

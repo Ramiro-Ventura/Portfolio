@@ -24,7 +24,7 @@ window.addEventListener("load", () => {
     HeroAnimations();
     WorkAnimations();
 
-    let toolsTimeline = gsap.timeline({
+    /*let toolsTimeline = gsap.timeline({
         scrollTrigger: {
             trigger: ".tools-section",
             start: "top top",
@@ -74,7 +74,7 @@ window.addEventListener("load", () => {
 
         world.addBody(body);
 
-    }
+    }*/
 
     ContactAnimations();
 
@@ -284,6 +284,7 @@ function HeroAnimations(){
 
     let timeline = gsap.timeline({
         scrollTrigger: {
+            id: "hero-section",
             trigger: ".hero-section",
             start: "top top",
             end: "+=4500%",
@@ -313,8 +314,6 @@ function HeroAnimations(){
 
         const chars = textContainer.querySelectorAll('.about-me-text-chars');
 
-        gsap.set(chars, { opacity: 0, y: -10 });
-
         timeline.set(textContainer, { scale: 1, immediateRender: false }, index === 0 ? "-=0.4" : ">");
         
         timeline.fromTo(textContainer, { opacity: 0, yPercent: 10 }, { opacity: 1, yPercent: 0, duration: duration }, index === 0 ? "-=0.4" : ">");
@@ -325,8 +324,10 @@ function HeroAnimations(){
             opacity: 1,
             y: 0,
             stagger: 0.05,
-            duration: 0.5
+            duration: 0.1
         }, ">");
+
+        if(index == 0) timeline.addLabel('about-me');
 
         if (index !== textContainers.length - 1) timeline.to(textContainer, { opacity: 0, yPercent: -5, duration: duration });
         
@@ -369,16 +370,18 @@ function WorkAnimations(){
 
 function ContactAnimations(){
 
-    const timeline = gsap.timeline({
+    /*const timeline = gsap.timeline({
         scrollTrigger: {
+            id: "contacts-section",
             trigger: ".contacts-section",
             start: "top top",
-            end: "+=250%",
+            end: "+=400%",
             scrub: 1,
             pin: true
         }
-    });
+    });*/
 
+    TimelineAnimations();
     const contactContainers = gsap.utils.toArray('.contact-container');
 
     contactContainers.forEach(contactContainer => {
@@ -387,8 +390,8 @@ function ContactAnimations(){
         let contactText     = contactContainer.querySelector(".contact-text");
         let underline       = contactContainer.querySelector('.contact-text-underline');
         let contactValue    = contactContainer.querySelector('.contact-value');
-
-        TimelineAnimations(timeline, magneticObject, contactText);
+        
+        //TimelineAnimations(timeline, magneticObject, contactText);
         
         MagnetismEffect(magneticObject);
         
@@ -397,16 +400,82 @@ function ContactAnimations(){
         OnContactClick(contactContainer, magneticObject, contactText);
     });
 
+    function TimelineAnimations(){
 
-    function TimelineAnimations(timeline, magneticObject, contactText){
+        let magneticObjects  = document.querySelectorAll(".container-magnetic-object");
+        let contactTexts     = document.querySelectorAll(".contact-text");
 
-        gsap.set(contactText, { transformPerspective: 200 });
+        const timeline = gsap.timeline({
+            scrollTrigger: {
+                id: "contacts-section",
+                trigger: ".contacts-section",
+                start: "top top",
+                end: "+=400%",
+                scrub: 1,
+                pin: true
+            }
+        });
 
-        timeline.from(magneticObject, { 
+        gsap.set(contactTexts, { transformPerspective: 200 })
+
+        timeline.to('.contacts-title', {
+
+            opacity: 1,
+            ease: "power2.out"
+        })
+        .to('.contacts-title', {
+
+            y: 0,
+            top: 0,
+            ease: "expo.out"
+
+        })
+        .from(magneticObjects, { 
+
             xPercent: -200,   
             opacity: 0,
-            duration: 2.5,
             ease: "elastic.out(0.7, 0.3)",
+            stagger: 0.3   
+
+        })
+        .from(contactTexts, {
+
+            rotateX: "90deg",
+            z: -200,
+            opacity: 0.2,
+            ease: "power2.out",
+            stagger: 0.3,
+            duration: 0.3
+
+        }, "<");
+
+    }
+
+    /*function TimelineAnimations(timeline, magneticObject, contactText){
+
+        gsap.set(contactText, { transformPerspective: 200 })
+
+        timeline.to('.contacts-title', {
+
+            opacity: 1,
+            //duration: 5,
+            ease: "power2.out"
+        })
+        .to('.contacts-title', {
+
+            y: 0,
+            top: 0,
+            //duration: 8,
+            ease: "expo.out"
+
+        })
+        .from(magneticObject, { 
+
+            xPercent: -200,   
+            opacity: 0,
+            //duration: 8,
+            ease: "elastic.out(0.7, 0.3)",
+
         })
         .from(contactText, {
 
@@ -414,10 +483,11 @@ function ContactAnimations(){
             z: -200,
             opacity: 0.2,
             ease: "power2.out",
-            duration: 0.7
+            //duration: 8
 
         }, "<");
-    }
+
+    }*/
 
     function MagnetismEffect(magneticObject){
 
@@ -552,172 +622,86 @@ function ContactAnimations(){
 
 }
 
-let scrollY = 0;
-
-function lockScroll() {
-    scrollY = window.scrollY;
-    document.body.style.overflow = 'hidden';
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = '100%';
-}
-
-function unlockScroll() {
-    document.body.style.overflow = '';
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.width = '';
-    window.scrollTo(0, scrollY);
-}
+let isAnimating = false;
 
 function MenuAnimations(menuBtn){
+
+    if(isAnimating) return;
+
+    if(menuBtn.dataset.status == 'close'){
+
+        OpenMenu(menuBtn);
+
+    } else {
+
+        CloseMenu(menuBtn);
+    }
+}
+
+function OnMenuItemClick(timelineId, label){
+
+    JumpTo(timelineId, label);
+    setTimeout(() => {
+        CloseMenu(document.querySelector('.menu-btn'));
+    }, 500); 
+}
+
+function OpenMenu(menuBtn){
 
     let menuStrokes = gsap.utils.toArray('.menu-btn-stoke');
     let topColumns = gsap.utils.toArray('.menu-animation-column-top');
     let bottomColumns = gsap.utils.toArray('.menu-animation-column-bottom');
 
-    let duration = 0.7;
+    let duration = 0.5;
+    isAnimating = true;
 
-    //Open menu
-    if(menuBtn.dataset.status == 'close'){
+    const openTimeline = gsap.timeline({
+        onComplete: () => { isAnimating = false; }
+    });
 
-        const openTimeline = gsap.timeline();
+    openTimeline.to(menuStrokes[0], { y: 9, rotateZ: 45, transformOrigin: "center center", duration: duration, ease: "power2.inOut" })
+    .to(menuStrokes[1], { opacity: 0, duration: duration }, "<")
+    .to(menuStrokes[2], { y: -9, rotateZ: -45, transformOrigin: "center center", duration: duration, ease: "power2.inOut" }, "<")
+    .set('.menu-container', { display: 'block', duration: 0 }, "<")
+    .to(topColumns, { y: 0, stagger: 0.2, duration: duration }, "<")
+    .to(bottomColumns, {  y: 0, stagger: 0.2, duration: duration, onComplete: () => lockScroll() }, "<")
+    .to('.menu-content-container', { opacity: 1, duration: 0.4 }, ">");
 
-        openTimeline.to(menuStrokes[0], {
-
-            y: 9,
-            rotateZ: 45,
-            transformOrigin: "center center",
-            duration: duration,
-            ease: "power2.inOut"
-        })
-        .to(menuStrokes[1], {
-
-            opacity: 0,
-            duration: duration
-        }, "<")
-        .to(menuStrokes[2], {
-
-            y: -9,
-            rotateZ: -45,
-            transformOrigin: "center center",
-            duration: duration,
-            ease: "power2.inOut"
-        }, "<")
-        .set('.menu-container', { display: 'block', duration: 0 }, "<")
-        .to(topColumns, {
-
-            y: 0,
-            stagger: 0.2,
-            duration: duration
-
-        }, "<")
-        .to(bottomColumns, {
-
-            y: 0,
-            stagger: 0.2,
-            duration: duration,
-            onComplete: () => lockScroll()
-
-        }, "<")
-        .to('.menu-content-container', {
-
-            opacity: 1,
-            duration: 0.4
-        }, ">");
-
-        menuBtn.dataset.status = "open";
-
-    }else {
-
-        let closeTimeline = gsap.timeline({
-
-            onComplete: () => {
-                gsap.set('.menu-container', { display: 'none' });
-            }
-        });
-
-        unlockScroll();
-
-        closeTimeline.to([menuStrokes[0], menuStrokes[2]], {
-
-            y: 0,
-            rotateZ: 0,
-            transformOrigin: "center center",
-            duration: duration,
-            ease: "power2.inOut"
-        })
-        .to(menuStrokes[1], {
-
-            opacity: 1,
-            duration: duration
-        }, ">-=0.3")
-        .to('.menu-content-container', {
-
-            opacity: 0,
-            duration: 0.4
-        }, "<")
-        .to(topColumns, {
-
-            y: '-100%',
-            stagger: 0.2,
-            duration: duration
-
-        }, ">")
-        .to(bottomColumns, {
-
-            y: '100%',
-            stagger: 0.2,
-            duration: duration
-
-        }, "<");
-
-        menuBtn.dataset.status = "close";
-
-    }
-
-
+    menuBtn.dataset.status = "open";
 }
 
-/*const SplitText = (element, charClass) => {
+function CloseMenu(menuBtn){
 
-    if (element.dataset.splitDone) return;
-    element.dataset.splitDone = "true";
+    let menuStrokes = gsap.utils.toArray('.menu-btn-stoke');
+    let topColumns = gsap.utils.toArray('.menu-animation-column-top');
+    let bottomColumns = gsap.utils.toArray('.menu-animation-column-bottom');
 
-    const walkTextNodes = (node) => {
+    let duration = 0.5;
+    isAnimating = true; 
 
-        const children = [...node.childNodes];
+    unlockScroll();
 
-        children.forEach(child => {
+    let closeTimeline = gsap.timeline({
 
-            if (child.nodeType === Node.TEXT_NODE) {
+        onComplete: () => {
 
-                const text = child.textContent;
-                const tokens = text.split(/(\s+)/);
+            gsap.set('.menu-container', { display: 'none' });
+            isAnimating = false;
+        }
+    });
 
-                const html = tokens.map(token => {
+    closeTimeline.to([menuStrokes[0], menuStrokes[2]], { y: 0, rotateZ: 0, transformOrigin: "center center", duration: duration, ease: "power2.inOut"})
+    .to(menuStrokes[1], { opacity: 1, duration: duration}, ">-=0.3")
+    .to('.menu-content-container', { opacity: 0, duration: 0.4 }, "<")
+    .to(topColumns, { y: '-100%', stagger: 0.2, duration: duration}, ">")
+    .to(bottomColumns, { y: '100%', stagger: 0.2, duration: duration }, "<");
 
-                    if (!token) return "";
+    menuBtn.dataset.status = "close";
+}
 
-                    if (/^\s+$/.test(token)) return token.replace(/ /g, `<span class="${charClass}"> </span>`);
 
-                    const chars = [...token].map(char =>`<span class="${charClass}">${char}</span>`).join("");
 
-                    return `<span style="display:inline-block; white-space:nowrap;">${chars}</span>`;
-
-                }).join("");
-
-                const wrapper = document.createElement("span");
-                wrapper.innerHTML = html;
-                child.replaceWith(...wrapper.childNodes);
-
-            } else if (child.nodeType === Node.ELEMENT_NODE && child.tagName !== "BR") walkTextNodes(child);
-        });
-    };
-
-    walkTextNodes(element);
-};*/
-
+//Utils
 const SplitText = (element, charClass) => {
     if (element.dataset.splitDone) return;
     element.dataset.splitDone = "true";
@@ -758,20 +742,43 @@ const SplitText = (element, charClass) => {
     walkTextNodes(element);
 };
 
-// para saltar para a section 3:
-function jumpTo(triggerId) {
-    console.log('saltei');
-  const st = ScrollTrigger.getById(triggerId);
-  gsap.to(window, {
-    scrollTo: st.start,
-    duration: 1,
-    ease: "power2.inOut"
-  });
+function JumpTo(triggerId, seekTime) {
+
+    const st = ScrollTrigger.getById(triggerId);
+    const timeline = st.animation;
+
+    let labelTime;
+
+    if (seekTime === undefined || seekTime === 'start') labelTime = 0;
+    else if (seekTime === 'end') labelTime = timeline.duration();
+    else labelTime = timeline.labels[seekTime] ?? 0;
+
+    st.disable(false);
+
+    gsap.to(window, {
+        scrollTo: st.start + (labelTime / timeline.duration()) * (st.end - st.start),
+        duration: 1,
+        ease: "power2.inOut",
+        onComplete: () => {
+            st.enable();
+        }
+    });
 }
 
-/*function jumpTo(triggerId) {
-  const st = ScrollTrigger.getById(triggerId);
-  if (!st) return;
-  
-  window.scrollTo({ top: st.start, behavior: "smooth" });
-}*/
+let scrollY = 0;
+
+function lockScroll() {
+    scrollY = window.scrollY;
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+}
+
+function unlockScroll() {
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollY);
+}
