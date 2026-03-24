@@ -107,11 +107,20 @@
 }
 
 .about-me-text {
+
     font-size: 1.2rem;
     width: 100%;
     min-width: 0;
     word-break: break-word;
     font-weight: 300;
+}
+
+.about-me-text p{
+    
+    font-size: 1.2rem;
+    font-weight: 300;
+    opacity: 0.01;
+    transform: translateY(-20px);
 }
 
 .about-me-text b {
@@ -337,6 +346,11 @@
     border-radius: 50%;
     background-color: var(--text-color);
     z-index: 2;
+}
+
+.container-magnetic-object:hover{
+
+    z-index: 3;
 }
 
 .contact-text{

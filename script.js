@@ -98,172 +98,191 @@ const SetCurrentAge = () => {
 
 function MagicCursorSetup(toolsURLs){
 
-    let cursor = new MagicCursor({
-        cursor: "/new-portfolio/assets/custom-cursor.png",
-        delay: 0.15,
-        className: "follower",
-        position: "50% 50%",
-    });
+    //#region Cursor
+        let cursor = new MagicCursor({
+            cursor: "/new-portfolio/assets/custom-cursor.png",
+            delay: 0.15,
+            className: "follower",
+            position: "50% 50%",
+        });
+    //#endregion Cursor
 
 
-    let githubImageURL = 'https://img.icons8.com/fluency/96/github.png';
-    let linkedinImageURL = 'https://img.icons8.com/color/96/linkedin.png';
-    let emailImageURL = 'https://img.icons8.com/color/96/gmail-new.png';
+    //#region Contacts section
+        let githubImageURL = 'https://img.icons8.com/fluency/96/github.png';
+        let linkedinImageURL = 'https://img.icons8.com/color/96/linkedin.png';
+        let emailImageURL = 'https://img.icons8.com/color/96/gmail-new.png';
 
-    let githubImage = new Image();
-    let linkedinImage = new Image();
-    let emailImage = new Image();
+        let githubImage = new Image();
+        let linkedinImage = new Image();
+        let emailImage = new Image();
 
-    githubImage.src = githubImageURL;
-    linkedinImage.src = linkedinImageURL;
-    emailImage.src = emailImageURL;
+        githubImage.src = githubImageURL;
+        linkedinImage.src = linkedinImageURL;
+        emailImage.src = emailImageURL;
 
-    let contactsParticlesBase = {
+        let contactsParticlesBase = {
 
-        baseSize: [35, 50],
-        finalSize: [5, 8],
-        gravity: -0.15,
-        friction: 0.96,
-        rotation: [-20, 20],
-        spin: [-0.05, 0.05],
-        speedMultiplier: 2,
-        spawnDistance: 80,
-        spawnChance: 0.7,
-        decay: 0.01,
-        lifetime: 0.2
-    }
-
-    cursor.onHover({
-
-        selector: '.contacts-section',
-        particles: {
-            shape: { a: githubImage, b: linkedinImage, c: emailImage },
-            ...contactsParticlesBase
+            baseSize: [35, 50],
+            finalSize: [5, 8],
+            gravity: -0.15,
+            friction: 0.96,
+            rotation: [-20, 20],
+            spin: [-0.05, 0.05],
+            speedMultiplier: 2,
+            spawnDistance: 80,
+            spawnChance: 0.7,
+            decay: 0.01,
+            lifetime: 0.2
         }
-    });
 
-    //tools-section
+        cursor.onHover({
 
-    let toolsImgs = [];
-    for (const imageURL of toolsURLs) {
-        
-        let image = new Image();
-        image.src = imageURL;
+            selector: '.contacts-section',
+            particles: {
+                shape: { a: githubImage, b: linkedinImage, c: emailImage },
+                ...contactsParticlesBase
+            }
+        });
 
-        toolsImgs.push(image);
-    }
+        cursor.onHover({
 
-    let toolsParticles = {
+            selector: '.github',
+            particles: {
+                shape: githubImage,
+                ...contactsParticlesBase
+            }
+        });
 
-        shape: Object.assign({}, toolsImgs),
-        baseSize: [35, 50],
-        finalSize: [25, 30],
+        cursor.onHover({
 
-        rotation: [0, 0],
-        spin: [0, 0],
+            selector: '.linkedin',
+            particles: {
+                shape: linkedinImage,
+                ...contactsParticlesBase
+            }
+        });
 
-        gravity: 0,
-        friction: 1,
-        speedMultiplier: 0,
+        cursor.onHover({
 
-        decay: 0.03,
-        lifetime: 1,
+            selector: '.email',
+            particles: {
+                shape: emailImage,
+                ...contactsParticlesBase
+            }
+        });
 
-        spawnDistance: 25,
-        spawnChance: 1,
-        spawnAmount: 1,
+        cursor.onHover({
 
-        bounce: 0,
-        useCollision: false
-    }
-    
-    cursor.onHover({
+            selector: '.contact-text',
+            cursor: '/new-portfolio/assets/custom-cursor-pointer.png',
+            className: 'follower-contact-wrapper',
+            width: "100px",
+            height: "40px",
+            position: "5% 50%",
+            onEnter: (element) => {
 
-        selector: '.tools-section',
-        particles: toolsParticles
-    });
+                if(element.innerHTML.toLowerCase() == 'email')
+                    document.querySelector("#follower p").innerHTML = "COPY";
+                else 
+                    document.querySelector("#follower p").innerHTML = "OPEN";
+                
+            },
+            onLeave: () => {
+                document.querySelector("#follower p").innerHTML = "";
+            }
+        });
 
-    //tools-section
+    //#endregion Contacts section
 
-    //work-project-container
-    cursor.onHover({
 
-        selector: '.work-project-container',
-        cursor: '/new-portfolio/assets/custom-cursor-pointer.png',
-        className: 'follower-hover',
-        width: "100px",
-        height: "40px",
-        position: "5% 50%"
-    });
+    //#region tools-section
 
-    //container-magnetic-object
-    cursor.onHover({
-
-        selector: '.container-magnetic-object',
-        width: '0px',
-        height: '0px',
-        particles: null
-    });
-
-    //hero-image
-    cursor.onHover({
-
-        selector: '.hero-image',
-        className: 'follower-hero-image',
-        width: "150px",
-        height: "150px",
-        position: "50% 80%"
-    });
-
-    cursor.onHover({
-
-        selector: '.github',
-        particles: {
-            shape: githubImage,
-            ...contactsParticlesBase
-        }
-    });
-
-    cursor.onHover({
-
-        selector: '.linkedin',
-        particles: {
-            shape: linkedinImage,
-            ...contactsParticlesBase
-        }
-    });
-
-    cursor.onHover({
-
-        selector: '.email',
-        particles: {
-            shape: emailImage,
-            ...contactsParticlesBase
-        }
-    });
-
-    //contact-text
-    cursor.onHover({
-
-        selector: '.contact-text',
-        cursor: '/new-portfolio/assets/custom-cursor-pointer.png',
-        className: 'follower-contact-wrapper',
-        width: "100px",
-        height: "40px",
-        position: "5% 50%",
-        onEnter: (element) => {
-
-            if(element.innerHTML.toLowerCase() == 'email')
-                document.querySelector("#follower p").innerHTML = "COPY";
-            else 
-                document.querySelector("#follower p").innerHTML = "OPEN";
+        let toolsImgs = [];
+        for (const imageURL of toolsURLs) {
             
-        },
-        onLeave: () => {
-            document.querySelector("#follower p").innerHTML = "";
-        }
-    });
+            let image = new Image();
+            image.src = imageURL;
 
+            toolsImgs.push(image);
+        }
+
+        let toolsParticles = {
+
+            shape: Object.assign({}, toolsImgs),
+            baseSize: [35, 50],
+            finalSize: [25, 30],
+
+            rotation: [0, 0],
+            spin: [0, 0],
+
+            gravity: 0,
+            friction: 1,
+            speedMultiplier: 0,
+
+            decay: 0.03,
+            lifetime: 1,
+
+            spawnDistance: 25,
+            spawnChance: 1,
+            spawnAmount: 1,
+
+            bounce: 0,
+            useCollision: false
+        }
+        
+        cursor.onHover({
+
+            selector: '.tools-section',
+            particles: toolsParticles
+        });
+
+    //#endregion tools-section
+
+
+    //#region work-project-container
+        cursor.onHover({
+
+            selector: '.work-project-container',
+            cursor: '/new-portfolio/assets/custom-cursor-pointer.png',
+            className: 'follower-hover',
+            width: "100px",
+            height: "40px",
+            position: "5% 50%"
+        });
+    //#endregion work-project-container
+
+
+    //#region container-magnetic-object
+        cursor.onHover({
+
+            selector: '.container-magnetic-object',
+            width: '0px',
+            height: '0px',
+            particles: null
+        });
+    //#endregion container-magnetic-object
+
+
+    //#region hero-image
+        cursor.onHover({
+
+            selector: '.hero-image',
+            className: 'follower-hero-image',
+            width: "150px",
+            height: "150px",
+            position: "50% 80%"
+        });
+    //#endregion hero-image
+
+
+    //#region Menu items
+        cursor.onHover({
+
+            selector: ".menu-links",
+            cursor: '/new-portfolio/assets/custom-cursor-pointer.png'
+        })
+    //#endregion Menu items
 
 }
 
@@ -287,7 +306,7 @@ function HeroAnimations(){
             id: "hero-section",
             trigger: ".hero-section",
             start: "top top",
-            end: "+=4500%",
+            end: "+=2000%",
             scrub: 1,
             pin: true
         }
@@ -310,9 +329,10 @@ function HeroAnimations(){
     textContainers.forEach((textContainer, index) => {
 
         let aboutMeText = textContainer.querySelector('.about-me-text');
-        SplitText(aboutMeText, 'about-me-text-chars');
+        let aboutMePs = aboutMeText.querySelectorAll('p'); 
+        //SplitText(aboutMeText, 'about-me-text-chars');
 
-        const chars = textContainer.querySelectorAll('.about-me-text-chars');
+        //const chars = textContainer.querySelectorAll('.about-me-text-chars');
 
         timeline.set(textContainer, { scale: 1, immediateRender: false }, index === 0 ? "-=0.4" : ">");
         
@@ -320,12 +340,22 @@ function HeroAnimations(){
 
         if (images[index]) timeline.fromTo(images[index], { scale: 1.5, y: 1000, rotation: angles[index]}, { scale: 1, y: 0, rotation: angles[index], duration: duration, ease: "circ.out" }, "<");
 
-        timeline.to(chars, {
+        timeline.to(aboutMePs, {
+
+            opacity: 1,
+            y: 0,
+            stagger: 1,
+            duration: 1
+        }, ">");
+
+        /*timeline.to(chars, {
             opacity: 1,
             y: 0,
             stagger: 0.05,
             duration: 0.1
-        }, ">");
+        }, ">");*/
+
+
 
         if(index == 0) timeline.addLabel('about-me');
 
@@ -703,39 +733,39 @@ function CloseMenu(menuBtn){
 
 //Utils
 const SplitText = (element, charClass) => {
+
     if (element.dataset.splitDone) return;
     element.dataset.splitDone = "true";
 
     const walkTextNodes = (node) => {
+
         const children = [...node.childNodes];
 
         children.forEach(child => {
+
             if (child.nodeType === Node.TEXT_NODE) {
+
                 const text = child.textContent;
                 const tokens = text.split(/(\s+)/);
 
                 const html = tokens.map(token => {
+
                     if (!token) return "";
 
-                    if (/^\s+$/.test(token)) {
-                        // Espaço com classe própria e display: inline forçado
+                    if (/^\s+$/.test(token)) 
                         return token.replace(/ /g, `<span class="${charClass}-space" style="display:inline;"> </span>`);
-                    }
 
-                    const chars = [...token].map(char =>
-                        `<span class="${charClass}" style="display:inline-block;">${char}</span>`
-                    ).join("");
+                    const chars = [...token].map(char => `<span class="${charClass}" style="display:inline-block;">${char}</span>`).join("");
 
                     return `<span class="${charClass}-word" style="display:inline-block; white-space:nowrap;">${chars}</span>`;
+
                 }).join("");
 
                 const wrapper = document.createElement("span");
                 wrapper.innerHTML = html;
                 child.replaceWith(...wrapper.childNodes);
 
-            } else if (child.nodeType === Node.ELEMENT_NODE && child.tagName !== "BR") {
-                walkTextNodes(child);
-            }
+            } else if (child.nodeType === Node.ELEMENT_NODE && child.tagName !== "BR") walkTextNodes(child);
         });
     };
 
