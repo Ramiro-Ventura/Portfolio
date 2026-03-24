@@ -16,8 +16,8 @@ window.addEventListener("load", () => {
                     "https://img.icons8.com/color/200/microsoft-sql-server.png"
     ]
     
-    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
-    
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);  
+
     SetCurrentAge();
     MagicCursorSetup(images);
     SmoothScroolSetup();
@@ -288,14 +288,13 @@ function MagicCursorSetup(toolsURLs){
 
 const SmoothScroolSetup = () => {
 
-    const lenis = new Lenis();
+   const lenis = new Lenis();
 
     lenis.on("scroll", ScrollTrigger.update);
 
     gsap.ticker.add((time) => lenis.raf(time * 1000));
 
     gsap.ticker.lagSmoothing(0);
-
 
 }
 
@@ -306,18 +305,19 @@ function HeroAnimations(){
             id: "hero-section",
             trigger: ".hero-section",
             start: "top top",
-            end: "+=2000%",
-            scrub: 1,
+            end: "+=1800%",
+            scrub: 1,            
             pin: true
         }
     });
 
-    const duration = 1.2;
+    const heroImagesDuration = 0.7;
+    const imagesAndTextDuration = 0.55;
 
-    timeline.to(".ramiro",              { xPercent: -50, left: "50%", ease: "power2.out", duration: duration }, "<")
-    .to(".ventura",                     { xPercent: 50, right: "50%", ease: "", duration: duration }, "<")
-    .to(".hero-image-container-top",    { yPercent: -100, ease: "", duration: duration }, "-=0.35")
-    .to(".hero-image-container-bottom", { yPercent: 100,    ease: "power2.out", duration: duration }, "<")
+    timeline.to(".ramiro",              { xPercent: -50, left: "50%", ease: "power2.out", duration: heroImagesDuration }, "<")
+    .to(".ventura",                     { xPercent: 50, right: "50%", ease: "", duration: heroImagesDuration }, "<")
+    .to(".hero-image-container-top",    { yPercent: -100, ease: "", duration: heroImagesDuration }, "-=0.35")
+    .to(".hero-image-container-bottom", { yPercent: 100,    ease: "power2.out", duration: heroImagesDuration }, "<")
     .to(".about-me-container",          { opacity: 1 }, "-=0.8")
     .to(".hero-image-container",        { opacity: 0, scale: 0, duration: 0}, "+=0.4");
 
@@ -336,16 +336,16 @@ function HeroAnimations(){
 
         timeline.set(textContainer, { scale: 1, immediateRender: false }, index === 0 ? "-=0.4" : ">");
         
-        timeline.fromTo(textContainer, { opacity: 0, yPercent: 10 }, { opacity: 1, yPercent: 0, duration: duration }, index === 0 ? "-=0.4" : ">");
+        timeline.fromTo(textContainer, { opacity: 0, yPercent: 10 }, { opacity: 1, yPercent: 0, duration: imagesAndTextDuration }, index === 0 ? "-=0.4" : ">");
 
-        if (images[index]) timeline.fromTo(images[index], { scale: 1.5, y: 1000, rotation: angles[index]}, { scale: 1, y: 0, rotation: angles[index], duration: duration, ease: "circ.out" }, "<");
+        if (images[index]) timeline.fromTo(images[index], { scale: 1.5, y: 1000, rotation: angles[index]}, { scale: 1, y: 0, rotation: angles[index], duration: imagesAndTextDuration, ease: "expo.out" }, "<");
 
         timeline.to(aboutMePs, {
 
             opacity: 1,
             y: 0,
-            stagger: 1,
-            duration: 1
+            stagger: 0.4,
+            duration: 0.4
         }, ">");
 
         /*timeline.to(chars, {
@@ -359,7 +359,7 @@ function HeroAnimations(){
 
         if(index == 0) timeline.addLabel('about-me');
 
-        if (index !== textContainers.length - 1) timeline.to(textContainer, { opacity: 0, yPercent: -5, duration: duration });
+        if (index !== textContainers.length - 1) timeline.to(textContainer, { opacity: 0, yPercent: -5, duration: imagesAndTextDuration });
         
     });
 }
@@ -441,7 +441,7 @@ function ContactAnimations(){
                 trigger: ".contacts-section",
                 start: "top top",
                 end: "+=400%",
-                scrub: 1,
+                scrub: 1,                
                 pin: true
             }
         });
@@ -460,19 +460,20 @@ function ContactAnimations(){
             ease: "expo.out"
 
         })
-        .from(magneticObjects, { 
+        .to(magneticObjects, { 
 
-            xPercent: -200,   
-            opacity: 0,
+            x: 0,
+            opacity: 1,
             ease: "elastic.out(0.7, 0.3)",
-            stagger: 0.3   
+            stagger: 0.3,
+            duration: 0.3
 
         })
-        .from(contactTexts, {
+        .to(contactTexts, {
 
-            rotateX: "90deg",
-            z: -200,
-            opacity: 0.2,
+            rotateX: 0,
+            z: 0,
+            opacity: 1,
             ease: "power2.out",
             stagger: 0.3,
             duration: 0.3
