@@ -1,81 +1,13 @@
 window.addEventListener("load", () => {
 
     
-    let images = [  "https://img.icons8.com/color/200/javascript--v1.png",
-                    "https://img.icons8.com/color/200/html-5--v1.png",
-                    "https://img.icons8.com/fluency/200/css3.png",
-                    'https://img.icons8.com/color/200/mysql-logo.png',
-                    "https://img.icons8.com/color/200/wordpress.png",
-                    "https://img.icons8.com/plasticine/200/c-sharp-logo.png",
-                    "https://img.icons8.com/color/200/gimp.png",
-                    "https://img.icons8.com/fluency/200/visual-studio-code-2019.png",
-                    "https://img.icons8.com/fluency/200/visual-studio.png",
-                    "https://img.icons8.com/fluency/200/github.png",
-                    "https://img.icons8.com/external-tal-revivo-color-tal-revivo/200/external-hypertext-preprocessor-a-widely-used-open-source-general-purpose-scripting-language-logo-color-tal-revivo.png",
-                    "https://img.icons8.com/color/200/net-framework.png",
-                    "https://img.icons8.com/color/200/microsoft-sql-server.png"
-    ]
-    
     gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);  
 
     SetCurrentAge();
-    MagicCursorSetup(images);
+    MagicCursorSetup();
     SmoothScroolSetup();
     HeroAnimations();
     WorkAnimations();
-
-    /*let toolsTimeline = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".tools-section",
-            start: "top top",
-            end: "+=150%",
-            scrub: 1,
-            pin: true
-        }
-    });
-
-    SplitText(document.querySelector('.tools-section-title'), 'tools-title-char');
-
-    let toolsTitleChars = document.querySelectorAll('.tools-title-char');
-
-    for (let index = 0; index < toolsTitleChars.length; index++) {
-
-        const toolsTitleChar = toolsTitleChars[index];
-
-        let y = index % 2 == 0 ? -40 : 40;
-        toolsTimeline.from(toolsTitleChar, { opacity: 0, y: y, duration: 0.5 });
-        
-    }
-
-    toolsTimeline.to({}, { duration: 4 });
-
-    //This causes the lag
-    const world = new World('.tools-section');
-
-    for(let image of images){
-
-        const x = Math.random() * (window.innerWidth - 100) + 50;
-        const y = Math.random() * (window.innerHeight / 2);
-
-        const size = Math.random() * (200 - 130) + 130;
-
-        let body = new Box({
-            x: x,
-            y: y,
-            width: size,
-            height: size,
-            mass: 5,
-            isStatic: false,
-            image: image,
-            bounce: 0.3,
-            gravity: 0.5,
-            friction: 0.97
-        });
-
-        world.addBody(body);
-
-    }*/
-
     ContactAnimations();
 
 
@@ -96,7 +28,7 @@ const SetCurrentAge = () => {
 
 }
 
-function MagicCursorSetup(toolsURLs){
+function MagicCursorSetup(){
 
     //#region Cursor
         let cursor = new MagicCursor({
@@ -195,51 +127,7 @@ function MagicCursorSetup(toolsURLs){
 
     //#endregion Contacts section
 
-
-    //#region tools-section
-
-        let toolsImgs = [];
-        for (const imageURL of toolsURLs) {
-            
-            let image = new Image();
-            image.src = imageURL;
-
-            toolsImgs.push(image);
-        }
-
-        let toolsParticles = {
-
-            shape: Object.assign({}, toolsImgs),
-            baseSize: [35, 50],
-            finalSize: [25, 30],
-
-            rotation: [0, 0],
-            spin: [0, 0],
-
-            gravity: 0,
-            friction: 1,
-            speedMultiplier: 0,
-
-            decay: 0.03,
-            lifetime: 1,
-
-            spawnDistance: 25,
-            spawnChance: 1,
-            spawnAmount: 1,
-
-            bounce: 0,
-            useCollision: false
-        }
-        
-        cursor.onHover({
-
-            selector: '.tools-section',
-            particles: toolsParticles
-        });
-
-    //#endregion tools-section
-
-
+    
     //#region work-project-container
         cursor.onHover({
 

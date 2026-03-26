@@ -274,27 +274,6 @@
 
 
 
-.tools-section{
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.tools-section-title{
-
-    font-size: 6rem;
-    font-weight: 900;
-}
-
-.tools-title-char{
-
-    display: inline-block;
-}
-
-
-
-
 
 .contacts-section {
 
