@@ -357,7 +357,6 @@
     line-height: 1;
     transform-origin: bottom;
     transform: rotateX(90deg);
-    transform: translateZ(-200px);
     opacity: 0;
 }
 

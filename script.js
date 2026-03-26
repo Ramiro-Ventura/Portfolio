@@ -305,7 +305,7 @@ function HeroAnimations(){
             id: "hero-section",
             trigger: ".hero-section",
             start: "top top",
-            end: "+=1800%",
+            end: "+=1000%",
             scrub: 1,            
             pin: true
         }
@@ -446,8 +446,6 @@ function ContactAnimations(){
             }
         });
 
-        gsap.set(contactTexts, { transformPerspective: 200 })
-
         timeline.to('.contacts-title', {
 
             opacity: 1,
@@ -472,8 +470,8 @@ function ContactAnimations(){
         .to(contactTexts, {
 
             rotateX: 0,
-            z: 0,
             opacity: 1,
+            transformPerspective: 800,
             ease: "power2.out",
             stagger: 0.3,
             duration: 0.3
