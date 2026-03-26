@@ -382,7 +382,7 @@ function WorkAnimations(){
     let textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color')
 
     workTimeline.to(".work-word", { rotateX: "90deg",z: -200, opacity: 0.2, ease: "none"})
-    .to("body", {backgroundColor: textColor, duration: 0.2}, "<")
+    .to(".work-section", {backgroundColor: textColor, duration: 0.2}, "<")
     .set(".work-word", { scale: 0, opacity: 0, duration: 0 }, ">");
 
     let workProjectsContainers = gsap.utils.toArray('.work-project-container');
@@ -394,7 +394,7 @@ function WorkAnimations(){
         if (index !== workProjectsContainers.length - 1) workTimeline.to(project, { scale: 0.7 });
     });
 
-    workTimeline.to("body", {backgroundColor: primaryColor, duration: 0.2 }, ">");
+    workTimeline.to(".work-section", {backgroundColor: primaryColor, duration: 0.2 }, ">");
 
 }
 
@@ -458,13 +458,19 @@ function ContactAnimations(){
             ease: "expo.out"
 
         })
+        .to('.contacts-containers-wraper', {
+
+            opacity: 1,
+            scale: 1,
+            duration: 0
+        })
         .to(magneticObjects, { 
 
             x: 0,
             opacity: 1,
             ease: "elastic.out(0.7, 0.3)",
             stagger: 0.3,
-            duration: 0.3
+            duration: 0.5
 
         })
         .to(contactTexts, {
@@ -474,9 +480,15 @@ function ContactAnimations(){
             transformPerspective: 800,
             ease: "power2.out",
             stagger: 0.3,
-            duration: 0.3
+            duration: 0.5
 
-        }, "<");
+        }, "<")
+        .addLabel('contacts')
+        .to({}, { duration: 0.3 })
+        .to('.contacts-section', {
+
+            yPercent: -35
+        }, ">");
 
     }
 

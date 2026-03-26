@@ -3,6 +3,7 @@
     position: relative;
     width: 100%;
     height: 100dvh;
+    background-color: var(--primary-color);
 }
 
 .hero-image-container{
@@ -188,6 +189,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: var(--primary-color);
 }
 
 .work-word{
@@ -302,6 +304,7 @@
     justify-content: space-around;
     flex-direction: column;
     padding: var(--space-xl);
+    background-color: var(--primary-color);
 
 }
 
@@ -321,6 +324,8 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-l);
+    scale: 0;
+    opacity: 0;
 }
 
 .contact-container{
@@ -381,6 +386,34 @@
 
 
 
+.footer{
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 35dvh;
+    background-color: var(--text-color);
+    border-radius: var(--space-l) var(--space-l) 0 0;
+    corner-shape: round;
+    z-index: -1;
+    padding: var(--space-l);
+}
+
+.footer p{
+
+    color: var(--primary-color);
+}
+
+.footer-name{
+    font-size: 6rem;
+    font-weight: 900;
+}
+
+.footer-made{
+
+    font-size: 1.5rem;
+    font-weight: 400;
+}
 
 
 
