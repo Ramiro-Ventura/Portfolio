@@ -127,7 +127,7 @@ function MagicCursorSetup(){
 
     //#endregion Contacts section
 
-    
+
     //#region work-project-container
         cursor.onHover({
 
@@ -226,7 +226,20 @@ function HeroAnimations(){
         
         timeline.fromTo(textContainer, { opacity: 0, yPercent: 10 }, { opacity: 1, yPercent: 0, duration: imagesAndTextDuration }, index === 0 ? "-=0.4" : ">");
 
-        if (images[index]) timeline.fromTo(images[index], { scale: 1.5, y: 1000, rotation: angles[index]}, { scale: 1, y: 0, rotation: angles[index], duration: imagesAndTextDuration, ease: "expo.out" }, "<");
+        if (images[index]) {
+
+            gsap.set(images[index], { xPercent: -50, yPercent: 200, scale: 1.5 });
+
+            // Animação
+            timeline.to(images[index], {
+                scale: 1,
+                yPercent: -50,
+                xPercent: -50,   // mantém o centramento durante a animação
+                rotation: angles[index],
+                duration: imagesAndTextDuration,
+                ease: "expo.out"
+            }, "<");
+        }
 
         timeline.to(aboutMePs, {
 
@@ -372,7 +385,7 @@ function ContactAnimations(){
 
         }, "<")
         .addLabel('contacts')
-        .to({}, { duration: 0.3 })
+        .to({}, { duration: 0.2 })
         .to('.contacts-section', {
 
             yPercent: -35
