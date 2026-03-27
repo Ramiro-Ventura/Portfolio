@@ -1,5 +1,6 @@
 window.addEventListener("load", () => {
 
+    CheckVersion();
     
     gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);  
 
@@ -12,6 +13,10 @@ window.addEventListener("load", () => {
 
 
 });
+
+window.addEventListener('resize', () => CheckVersion());
+    
+const CheckVersion = () => { if (window.innerWidth < 992) window.location.replace('/new-portfolio/mobile'); }
 
 const SetCurrentAge = () => {
 
