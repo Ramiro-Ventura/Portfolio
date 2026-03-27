@@ -104,11 +104,9 @@
 
 .about-me-text {
 
-    font-size: 1.2rem;
     width: 100%;
     min-width: 0;
     word-break: break-word;
-    font-weight: 300;
 }
 
 .about-me-text p{
@@ -246,27 +244,27 @@
 
 .work-project-complex{
 
-    background-image: url("/new-portfolio/assets/complex_full.png");
+    background-image: url("/new-portfolio/assets/complex_full.webp");
 }
 
 .work-project-afterlink{
 
-    background-image: url("/new-portfolio/assets/afterlink_full.png");
+    background-image: url("/new-portfolio/assets/afterlink_full.webp");
 }
 
 .work-project-easyqrcode{
 
-    background-image: url("/new-portfolio/assets/easyqrcode_full.png");
+    background-image: url("/new-portfolio/assets/easyqrcode_full.webp");
 }
 
 .work-project-wavetunes{
 
-    background-image: url("/new-portfolio/assets/wavetunes_full.png");
+    background-image: url("/new-portfolio/assets/wavetunes_full.webp");
 }
 
 .work-project-coloris{
 
-    background-image: url("/new-portfolio/assets/coloris_full.png");
+    background-image: url("/new-portfolio/assets/coloris_full.webp");
 }
 
 
@@ -301,6 +299,7 @@
 
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     gap: var(--space-l);
     scale: 0;
     opacity: 0;
@@ -574,12 +573,50 @@
 }
 
 
+@media (width < 1600px) {
+    
+    .contacts-title{
+        font-size: 5rem;        
+    }
 
+    .contacts-containers-wraper, .contact-container{
+
+        gap: var(--space-ml);
+    }
+
+    .contact-magnetic-object-image{
+
+        width: 100%;
+        height: 100%;
+    }
+
+    .contact-text{
+
+        font-size: 3rem;
+        font-weight: 700;
+    }
+
+    .contact-text-underline{
+
+        height: 2px;
+    }
+
+    .contact-value{
+
+        font-size: 1.5rem;
+    }
+
+    .contacts-section{
+
+        padding: var(--space-l);
+    }
+
+}
 
 @media (width < 1024px){
 
     .hero-name{
-        font-size: 7rem;
+        font-size: 5rem;
     }
 
     .about-me-text-container{
@@ -593,7 +630,7 @@
         font-size: 2.5rem;
     }
 
-    .about-me-text{
+    .about-me-text p{
 
         font-size: 1.1rem;
     }
@@ -618,7 +655,7 @@
         font-size: 2rem;
     }
 
-    .about-me-text{
+    .about-me-text p{
 
         font-size: 1rem;
     }
@@ -660,7 +697,7 @@
         font-size: 1.8rem;
     }
 
-    .about-me-text{
+    .about-me-text p{
 
         font-size: 0.95rem;
     }
@@ -718,7 +755,7 @@
         font-size: 1.5rem;
     }
 
-    .about-me-text{
+    .about-me-text p{
 
         font-size: 0.9rem;
     }

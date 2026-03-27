@@ -1,6 +1,7 @@
 window.addEventListener("load", () => {
 
     CheckVersion();
+    console.log(window.innerWidth);
     
     gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);  
 
@@ -37,7 +38,7 @@ function MagicCursorSetup(){
 
     //#region Cursor
         let cursor = new MagicCursor({
-            cursor: "/new-portfolio/assets/custom-cursor.png",
+            cursor: "/new-portfolio/assets/custom-cursor.webp",
             delay: 0.15,
             className: "follower",
             position: "50% 50%",
