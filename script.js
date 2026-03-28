@@ -1,7 +1,6 @@
 window.addEventListener("load", () => {
 
-    CheckVersion();
-    console.log(window.innerWidth);
+    //CheckVersion();
     
     gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);  
 
@@ -15,7 +14,7 @@ window.addEventListener("load", () => {
 
 });
 
-window.addEventListener('resize', () => CheckVersion());
+//window.addEventListener('resize', () => CheckVersion());
     
 const CheckVersion = () => { if (window.innerWidth < 992) window.location.replace('/new-portfolio/mobile'); }
 
@@ -113,7 +112,7 @@ function MagicCursorSetup(){
         cursor.onHover({
 
             selector: '.contact-text',
-            cursor: '/new-portfolio/assets/custom-cursor-pointer.png',
+            cursor: '/new-portfolio/assets/custom-cursor-pointer.webp',
             className: 'follower-contact-wrapper',
             width: "100px",
             height: "40px",
@@ -138,7 +137,7 @@ function MagicCursorSetup(){
         cursor.onHover({
 
             selector: '.work-project-container',
-            cursor: '/new-portfolio/assets/custom-cursor-pointer.png',
+            cursor: '/new-portfolio/assets/custom-cursor-pointer.webp',
             className: 'follower-hover',
             width: "100px",
             height: "40px",
@@ -174,7 +173,7 @@ function MagicCursorSetup(){
         cursor.onHover({
 
             selector: ".menu-links",
-            cursor: '/new-portfolio/assets/custom-cursor-pointer.png'
+            cursor: '/new-portfolio/assets/custom-cursor-pointer.webp'
         })
     //#endregion Menu items
 
@@ -247,6 +246,7 @@ function HeroAnimations(){
             }, "<");
         }
 
+        gsap.set(aboutMePs, { opacity: 0.01, y: -20 });
         timeline.to(aboutMePs, {
 
             opacity: 1,
