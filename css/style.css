@@ -104,28 +104,20 @@
 
 .about-me-text {
 
-    width: 100%;
-    min-width: 0;
-    word-break: break-word;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-l);
 }
 
 .about-me-text p{
     
     font-size: 1.2rem;
     font-weight: 300;
-    opacity: 0.01;
-    transform: translateY(-20px);
 }
 
 .about-me-text b {
 
     font-weight: 800;
-}
-
-.about-me-text-chars{
-
-    opacity: 0;
-    transform: translateY(-10px);
 }
 
 .about-me-images-container{
@@ -149,6 +141,7 @@
     align-items: center;
     background-color: var(--text-color);
     padding: var(--space-m);
+    padding-bottom: 0;
     z-index: 1;
     box-shadow: 10px 10px 10px 10px rgba(20, 20, 20, 0.1);
 }
@@ -274,6 +267,8 @@
 
 .contacts-section {
 
+    min-height: 100dvh;
+    height: fit-content;
     position: relative;
     display: flex;
     align-items: center;
@@ -390,6 +385,7 @@
 
     font-size: 1.5rem;
     font-weight: 400;
+    text-align: center;
 }
 
 
@@ -477,23 +473,24 @@
     padding: var(--space-l);
     align-items: start;
     justify-content: center;
+    gap: var(--space-s);
 }
 
 .menu-links{
 
+    height: 128px;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: var(--space-m);
     color: var(--primary-color);
-    font-size: 6rem;
-    font-weight: 900;
     margin-left: var(--space-l);
 }
 
 .menu-links-icon{
 
     width: 0;
+    height: 0;
     transform-origin: center left;
     transition: var(--time-l);
 }
@@ -501,6 +498,7 @@
 .menu-links:hover > .menu-links-icon{
 
     width: 128px;
+    height: auto;
 }
 
 .menu-links *{
@@ -574,10 +572,48 @@
 
 
 @media (width < 1600px) {
-    
-    .contacts-title{
-        font-size: 5rem;        
+
+    .hero-name{
+
+        font-size: 8rem;
     }
+
+
+
+
+
+    .about-me-title{
+
+        font-size: 2.7rem;
+    }
+
+    .about-me-text {
+
+        gap: var(--space-ml);
+    }
+
+    .about-me-text p{
+        
+        font-size: 1.05rem;
+    }
+
+    .about-me-image-text{
+
+        font-size: 1.4rem;
+    }
+
+
+
+
+    .work-project-container-overlay-title{
+
+        font-size: 4rem;
+        font-weight: 800;
+    }
+
+
+
+
 
     .contacts-containers-wraper, .contact-container{
 
@@ -611,72 +647,204 @@
         padding: var(--space-l);
     }
 
+
+
+
+
+    .footer-name{
+        font-size: 4.5rem;
+        font-weight: 800;
+    }
+
+    .footer-made{
+
+        font-size: 1.2rem;
+    }
+
+
 }
 
-@media (width < 1024px){
-
+@media (width < 1300px) {
+    
     .hero-name{
-        font-size: 5rem;
-    }
 
-    .about-me-text-container{
-
-        padding: var(--space-l);
-    }
-
-
-    .about-me-title{
-
-        font-size: 2.5rem;
-    }
-
-    .about-me-text p{
-
-        font-size: 1.1rem;
-    }
-}
-
-@media (width < 992px){
-
-    .hero-name{
-        font-size: 6rem;
+        font-size: 7rem;
     }
 
 
 
-
-    .about-me-text-container{
-
-        padding: var(--space-m);
-    }
 
     .about-me-title{
 
         font-size: 2rem;
     }
 
+    .about-me-text-container{
+
+        padding: var(--space-m);
+    }
+
     .about-me-text p{
+        
+        font-size: 1rem;
+    }
+    
+    .about-me-image-text{
+
+        font-size: 1.2rem;
+    }
+
+
+
+
+    .work-project-container{
+
+        border-radius: var(--radius-ml);
+        inset: var(--space-ml);
+    }
+
+    .work-project-container-overlay{
+
+        padding: var(--space-l);
+    }
+
+    .work-project-container-overlay-title{
+
+        font-size: 4rem;
+        font-weight: 700;
+    }
+
+
+
+
+
+    .footer-name{
+
+        font-size: 3.5rem;
+        font-weight: 800;
+    }
+
+    .footer-made{
+
+        font-size: 1.1rem;
+        font-weight: 400;
+    }
+
+}
+
+@media (width < 992px){
+
+    .hero-name{
+
+        font-size: 6rem;
+    }
+
+
+    .about-me-text-container{
+
+        padding: var(--space-s);
+    }
+
+
+    .contacts-title{
+
+        font-size: 4rem;
+        font-weight: 700;
+        
+    }
+
+    .contacts-containers-wraper, .contact-container {
+        gap: var(--space-m);
+    }
+    
+    .contact-container{
+
+        flex-direction: column;
+    }
+
+    .container-magnetic-object{
+
+        padding: var(--space-ml);
+    }
+
+    .contact-magnetic-object-image {
+        width: 55px;
+        height: 55px;
+    }
+
+    .contact-text{
+
+        font-size: 2.5rem;
+    }
+
+    .contact-text-underline{
+
+        height: 2px;
+    }
+
+    .contact-value{
+
+        font-size: 1.2rem;
+    }
+
+
+
+    .footer{
+
+        padding: var(--space-m);
+    }
+
+    .footer-name{
+
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    .footer-made{
 
         font-size: 1rem;
     }
+
+
+
+
+    .menu-links{
+        height: 80px;
+        margin-left: var(--space-m);
+    }
+
+    .menu-links:hover > .menu-links-icon{
+
+        width: 80px;
+    }
+
+    .menu-links *{
+
+        font-size: 3.5rem;
+        font-weight: 900;
+    }
+
+
 }
 
 @media (width < 768px){
 
     .hero-name{
         font-size: 5rem;
-        font-weight: 700;
+        font-weight: 600;
     }
+
     .ramiro{
-        left: var(--space-xl);
-        bottom: var(--space-l);
+        left: var(--space-l);
+        bottom: var(--space-ml);
     }
 
     .ventura{
 
-        right: var(--space-xl);
-        top: var(--space-l);
+        right: var(--space-l);
+        top: var(--space-ml);
     }
+
 
 
 
@@ -684,27 +852,40 @@
     .about-me-texts-container{
 
         height: 50%;
-        gap: var(--space-s);
     }
 
     .about-me-text-container{
 
-        padding: var(--space-s);
+        gap: var(--space-sm);
+        padding: var(--space-l);
     }
 
     .about-me-title{
 
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     .about-me-text p{
-
-        font-size: 0.95rem;
+        
+        font-size: 0.9rem;
     }
 
     .about-me-images-container{
 
         height: 50%;
+        
+    }
+
+    .about-me-image-wrapper {
+
+        height: 80%;
+        width: auto;
+        padding: var(--space-sm);
+    }
+
+    .about-me-image-text{
+
+        font-size: 1.1rem;
     }
 
 
@@ -714,13 +895,66 @@
         height: auto;
         aspect-ratio: 1 / 1;
     }
+    
+    .work-project-container{
+
+        border-radius: var(--radius-m);
+        inset: var(--space-m);
+    }
+
+    .work-project-container-overlay{
+
+        padding: var(--space-ml);
+    }
+
+    .work-project-container-overlay-title{
+
+        font-size: 3rem;
+    }
+
+    .work-project-container-overlay-text{
+
+        font-size: 0.9rem;
+    }
 
 
+
+    .footer-name{
+
+        font-size: 2.2rem;
+        font-weight: 600;
+    }
+
+    .footer-made{
+
+        font-size: 0.9rem;
+
+    }
     
 
-    .menu-links-icon{
 
-        display: none;
+
+    .menu-btn{
+
+        width: 50px;
+        height: 50px;
+        top: var(--space-s);
+        right: var(--space-s);
+    }
+
+    .menu-btn-stoke{
+
+        width: 25px;
+        height: 3px;
+    }
+
+    .menu-content-container{
+
+        gap: var(--space-m);
+    }
+
+    .menu-links{
+        margin-left: var(--space-s);
     }
 
 }
@@ -731,15 +965,16 @@
         font-size: 4rem;
         font-weight: 700;
     }
+
     .ramiro{
-        left: var(--space-l);
-        bottom: var(--space-l);
+        left: var(--space-m);
+        bottom: var(--space-m);
     }
 
     .ventura{
 
-        right: var(--space-l);
-        top: var(--space-l);
+        right: var(--space-m);
+        top: var(--space-m);
     }
 
 
@@ -747,17 +982,74 @@
 
     .about-me-container{
 
+        padding: 0;
+    }
+    
+    .about-me-text-container{
+
+        gap: var(--space-s);
         padding: var(--space-s);
     }
 
     .about-me-title{
 
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
+
 
     .about-me-text p{
 
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+    }
+
+
+
+
+
+    .work-project-container{
+
+        border-radius: var(--radius-s);
+        inset: var(--space-s);
+    }
+
+    .work-project-container-overlay{
+
+        padding: var(--space-m);
+    }
+
+    .work-project-container-overlay-title{
+
+        font-size: 2rem;
+    }
+
+    .work-project-container-overlay-text{
+
+        font-size: 0.85rem;
+        font-weight: 400;
+    }
+
+
+
+
+    .menu-content-container {
+        padding: var(--space-s);
+    }
+
+    .menu-links{
+
+        height: 40px;
+        gap: var(--space-s);
+    }
+
+    .menu-links:hover > .menu-links-icon{
+
+        width: 40px;
+    }
+
+    .menu-links *{
+
+        font-size: 2rem;
+        font-weight: 700;
     }
 
 }
