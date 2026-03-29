@@ -287,7 +287,7 @@
     opacity: 0;
     font-size: 5rem;
     font-weight: 800;
-    
+    text-align: center;
 }
 
 .contacts-containers-wraper{
@@ -408,7 +408,7 @@
     background-color: var(--primary-color);
 }
 
-.menu-btn-stoke{
+.menu-btn-stroke{
 
     position: relative;
     width: 35px;
@@ -478,7 +478,6 @@
 
 .menu-links{
 
-    height: 128px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -489,19 +488,18 @@
 
 .menu-links-icon{
 
-    width: 0;
-    height: 0;
+    color: var(--primary-color);
+    font-size: 0;
     transform-origin: center left;
     transition: var(--time-l);
 }
 
 .menu-links:hover > .menu-links-icon{
 
-    width: 128px;
-    height: auto;
+    font-size: 6rem;
 }
 
-.menu-links *{
+.menu-links p{
 
     color: var(--primary-color);
     font-size: 6rem;
@@ -792,6 +790,7 @@
     .footer{
 
         padding: var(--space-m);
+        height: 25dvh;
     }
 
     .footer-name{
@@ -809,16 +808,16 @@
 
 
     .menu-links{
-        height: 80px;
+
         margin-left: var(--space-m);
     }
 
     .menu-links:hover > .menu-links-icon{
 
-        width: 80px;
+        font-size: 3.5rem;
     }
 
-    .menu-links *{
+    .menu-links p{
 
         font-size: 3.5rem;
         font-weight: 900;
@@ -942,7 +941,7 @@
         right: var(--space-s);
     }
 
-    .menu-btn-stoke{
+    .menu-btn-stroke{
 
         width: 25px;
         height: 3px;
@@ -1031,22 +1030,35 @@
 
 
 
+    .contacts-title{
+
+        font-size: 3.5rem;
+    }
+
+    .contacts-containers-wraper{
+
+        gap: var(--space-l);
+    }
+
+
+
+
+
     .menu-content-container {
         padding: var(--space-s);
     }
 
     .menu-links{
 
-        height: 40px;
         gap: var(--space-s);
     }
 
     .menu-links:hover > .menu-links-icon{
 
-        width: 40px;
+        font-size: 2rem;
     }
 
-    .menu-links *{
+    .menu-links p{
 
         font-size: 2rem;
         font-weight: 700;
@@ -1072,14 +1084,36 @@
         top: var(--space-m);
     }
 
+
+
+
+
     .about-me-title{
 
         font-size: 1.3rem;
     }
 
-
     .about-me-container{
 
         padding: var(--space-xs);
+    }
+
+
+
+
+
+    .contacts-title{
+
+        font-size: 2.5rem;
+    }
+
+    .contact-text{
+
+        font-size: 1.5rem;
+    }
+
+    .contact-value{
+
+        font-size: 1rem;
     }
 }
