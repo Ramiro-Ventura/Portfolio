@@ -217,7 +217,7 @@ function HeroAnimations(){
     const textContainers = gsap.utils.toArray(".about-me-text-container");
     const images = gsap.utils.toArray(".about-me-image-wrapper");
 
-    let angles = ["-5.38deg", "1.89deg", "-7.82102deg", "-1.68deg", "4.71deg"]
+    let angles = [-5.38, 1.89, -7.82102, -1.68, 4.71];
 
     textContainers.forEach((textContainer, index) => {
 
@@ -233,7 +233,7 @@ function HeroAnimations(){
 
         if (images[index]) {
 
-            gsap.set(images[index], { xPercent: -50, yPercent: 200, scale: 1.5 });
+            gsap.set(images[index], { xPercent: -50, yPercent: 200, scale: 1.5, rotation: angles[index] * -1 });
 
             // Animação
             timeline.to(images[index], {
@@ -596,7 +596,7 @@ function OnMenuItemClick(timelineId, label){
 
 function OpenMenu(menuBtn){
 
-    let menuStrokes = gsap.utils.toArray('.menu-btn-stoke');
+    let menuStrokes = gsap.utils.toArray('.menu-btn-stroke');
     let topColumns = gsap.utils.toArray('.menu-animation-column-top');
     let bottomColumns = gsap.utils.toArray('.menu-animation-column-bottom');
 
@@ -607,9 +607,11 @@ function OpenMenu(menuBtn){
         onComplete: () => { isAnimating = false; }
     });
 
-    openTimeline.to(menuStrokes[0], { y: 9, rotateZ: 45, transformOrigin: "center center", duration: duration, ease: "power2.inOut" })
+    let yValue = parseInt(getComputedStyle(menuStrokes[0]).height) + parseInt(getComputedStyle(menuBtn).gap);
+
+    openTimeline.to(menuStrokes[0], { y: yValue, rotateZ: 45, transformOrigin: "center center", duration: duration, ease: "power2.inOut" })
     .to(menuStrokes[1], { opacity: 0, duration: duration }, "<")
-    .to(menuStrokes[2], { y: -9, rotateZ: -45, transformOrigin: "center center", duration: duration, ease: "power2.inOut" }, "<")
+    .to(menuStrokes[2], { y: -yValue, rotateZ: -45, transformOrigin: "center center", duration: duration, ease: "power2.inOut" }, "<")
     .set('.menu-container', { display: 'block', duration: 0 }, "<")
     .to(topColumns, { y: 0, stagger: 0.2, duration: duration }, "<")
     .to(bottomColumns, {  y: 0, stagger: 0.2, duration: duration, onComplete: () => lockScroll() }, "<")
@@ -620,7 +622,7 @@ function OpenMenu(menuBtn){
 
 function CloseMenu(menuBtn){
 
-    let menuStrokes = gsap.utils.toArray('.menu-btn-stoke');
+    let menuStrokes = gsap.utils.toArray('.menu-btn-stroke');
     let topColumns = gsap.utils.toArray('.menu-animation-column-top');
     let bottomColumns = gsap.utils.toArray('.menu-animation-column-bottom');
 
