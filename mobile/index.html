@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramiro Ventura</title>
+
+    <link rel="stylesheet" href="/new-portfolio/css/grid.css">
+    <link rel="stylesheet" href="/new-portfolio/css/main.css">
+    <link rel="stylesheet" href="/new-portfolio/mobile/style.css">
+
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="/new-portfolio/mobile/script.js"></script>
+
+    <script src="/new-portfolio/animation.js"></script>
+
+
+</head>
+<body>    
+
+
+    <!--<div class="menu-btn" data-status="close" onclick="MenuAnimations(this)">
+        <div class="menu-btn-stoke"></div>
+        <div class="menu-btn-stoke"></div>
+        <div class="menu-btn-stoke"></div>
+    </div>
+
+    <div class="menu-container">
+
+        <div class="menu-animation-container">
+            <div class="menu-animation-columns-container">
+                <div class="menu-animation-column menu-animation-column-top"></div>
+                <div class="menu-animation-column menu-animation-column-top"></div>
+                <div class="menu-animation-column menu-animation-column-top"></div>
+                <div class="menu-animation-column menu-animation-column-top"></div>
+                <div class="menu-animation-column menu-animation-column-top"></div>
+                <div class="menu-animation-column menu-animation-column-top"></div>
+            </div>
+
+            <div class="menu-animation-columns-container">
+                <div class="menu-animation-column menu-animation-column-bottom"></div>
+                <div class="menu-animation-column menu-animation-column-bottom"></div>
+                <div class="menu-animation-column menu-animation-column-bottom"></div>
+                <div class="menu-animation-column menu-animation-column-bottom"></div>
+                <div class="menu-animation-column menu-animation-column-bottom"></div>
+                <div class="menu-animation-column menu-animation-column-bottom"></div>
+            </div>
+        </div>
+
+        <div class="menu-content-container">
+            <div class="menu-links" onclick="OnMenuItemClick('hero-section')"><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg><p>HOME</p></div>
+            <div class="menu-links" onclick="OnMenuItemClick('hero-section', 'about-me')"><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 9h.01" /><path d="M11 12h1v4h1" /></svg><p>ABOUT ME</p></div>
+            <div class="menu-links" onclick="OnMenuItemClick('work-section')"><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 3h3l2 2h5a2 2 0 0 1 2 2v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2" /><path d="M17 16v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2h2" /></svg><p>WORK</p></div>
+            <div class="menu-links" onclick="OnMenuItemClick('contacts-section', 'contacts')"><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 21v-6.5a3.5 3.5 0 0 0 -7 0v6.5h18v-6a4 4 0 0 0 -4 -4h-10.5" /><path d="M12 11v-8h4l2 2l-2 2h-4" /><path d="M6 15h1" /></svg><p>CONTACT ME</p></div>
+        </div>
+
+    </div>-->
+
+    <section class="hero-section">
+        <p class="hero-name ramiro">Ramiro</p>
+        <p class="hero-name ventura">Ventura</p>
+    </section>
+
+    <section class="about-me-section">
+
+        <div class="about-me-texts-container">
+
+            <div class="about-me-text-container">
+                <h2 class="about-me-title">😁 Who am I?</h2>
+                <div class="about-me-text"><p>Hello 👋, my name is <b>Ramiro Ventura</b>.</p><br><p>I’m a <span id="age-span"></span>-year-old creative and technical <b>Full-Stack developer</b>.</p><br><p>I consider myself <b>introverted, curious, patient, creative, fast learning</b> and i'm always hunger for more knowledge especially in the fields of technology, programming, music or anything really.</p><br><p>I take pride in my <b>work</b> and always give my <b>best</b> and the only thing I really dislike is having my <b>creativity</b> suppressed.</p></div>
+            </div>
+
+            <div class="about-me-image-container">
+                <div class="about-me-image-wrapper" style="rotate: -5.38deg;">
+                    <img class="about-me-image" src="/new-portfolio/assets/photo_perfil_2.webp" alt="">
+                    <p class="about-me-image-text">This is me</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="about-me-texts-container">
+            
+            <div class="about-me-text-container">
+
+                <h2 class="about-me-title">📐 Education</h2>
+                <div class="about-me-text"><p>In <b>2022</b>, I completed the <b>TGPSI</b> course (Level IV EU Framework) at <b>EPED</b> where I learned with the best teachers I have ever had.</p>
+                    <br><p>I developed a strong foundation in <b>C#, PHP, JavaScript,</b> and <b>SQL</b>, alongside design tools like <b>Photoshop</b>.</p>
+                    <br><p>My <b>experience</b> includes diverse <b>projects</b> such as:
+                        <ul>
+                            <li class="ml-l"><p><b>Infrastructure:</b> Planning and building a server-ready space.</p></li>
+                            <li class="ml-l"><p><b>Web Development:</b> Creating a full product with a website, database, and back office.</p></li>
+                            <li class="ml-l"><p><b>Creative Design:</b> Designing the logo for the school's psychology department.</p></li>
+                        </ul>
+                </div>
+            </div>
+            
+            <div class="about-me-image-container">
+
+                <div class="about-me-image-wrapper" style="rotate:1.89deg;">
+                    <img class="about-me-image object-position-left" src="/new-portfolio/assets/eped.webp" alt="">
+                    <p class="about-me-image-text">My School</p>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="about-me-texts-container">
+
+            <div class="about-me-text-container">
+                <h2 class="about-me-title">💻 Professional Experience</h2>
+                <div class="about-me-text"><p>During my amateur coder journey, I develop <b>Android Apps</b>, learnt <b>Unity 2D /3D</b>, create <b>Windows Apps</b> in Visual Studio, and then I learned <b>Web Development</b> and began to organize and prototype <b>Full-Stack Apps</b> for the web.</p>
+                    <br><p>As part of my <b>TGPSI</b> course, I completed an <b>internship</b> at Reloading, where I worked with technologies like <b>C#, CSS, PHP, JS, SQL, and ASP.NET</b> to develop an internal CRM for managing job proposals.</p>
+                    <br><p>More recently, I worked at <b>VTXRM</b> as a <b>Technical Consultant</b>. My role involved integrating APIs using <b>C#</b> and <b>ASP.NET</b> for an application developed for our client, <b>Volkswagen UK</b>.</p>
+                </div>
+            </div>
+
+            <div class="about-me-image-container">
+                <div class="about-me-image-wrapper" style="rotate:-7.82102deg;">
+                    <img class="about-me-image" src="/new-portfolio/assets/work.webp" alt="">
+                    <p class="about-me-image-text">Coffee. Code. Debug. Repeat.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-me-texts-container">
+
+            <div class="about-me-text-container">
+                <h2 class="about-me-title">🏆 Distinctions and Awards</h2>
+                <div class="about-me-text"><p>Throughout my academic journey, I received <b>2 scholarships</b> for <b>academic excellence</b> in <b>10th</b> and <b>11th</b> grade as well as <b>2 Merit Student Awards</b>.</p>
+                    <br><p>I also participated in the <b>2nd National Championship of Digital Professions</b> – SkillsPortugal Digital 2022, in the category of <b>Enterprise Computer Applications Development</b>, held from May 2 to 16, 2022.</p>
+                </div>
+            </div>
+
+            <div class="about-me-image-container">
+                <div class="about-me-image-wrapper" style="rotate:6.68deg;">
+                    <img class="about-me-image" src="/new-portfolio/assets/awards.webp" alt="">
+                    <p class="about-me-image-text">Academic Highlights</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-me-texts-container">
+
+            <div class="about-me-text-container">
+                <h2 class="about-me-title">🌊 Interests and Hobbies</h2>
+                <div class="about-me-text"><p>I'm passionate about <b>pop culture</b>, from music to movies and series.</p>
+                    <br><p>I enjoy playing <b>electric guitar</b>, solving the <b>Rubik's Cube</b>, and <b>reading</b>, but what I really like is to project and develop <b>Full-Stack Apps</b> as well develop some fun tools.</p>
+                    <br><p>I love water sports like <b>Bodyboard</b>, I hate running and I <b>love</b> the going to the <b>beach</b></p>
+                </div>
+            </div>
+
+            <div class="about-me-image-container">
+                <div class="about-me-image-wrapper" style="rotate:-4.71deg;">
+                    <img class="about-me-image" src="/new-portfolio/assets/bodyboard.webp" alt="">
+                    <p class="about-me-image-text">This is not me</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="work-section">
+
+        <h2 class="work-title">WORK</h2>
+
+        <div class="work-projects-container">
+
+            <div class="work-project-container">
+                <img class="work-project-image" src="/new-portfolio/assets/wavetunes_full.webp" alt="">
+                <div class="work-project-container-overlay">
+                    <h3 class="work-project-container-overlay-title">Wavetunes</h3>
+                    <p class="work-project-container-overlay-text">An App where you can just listen to your music for free</p>
+                </div>
+            </div>
+
+            <div class="work-project-container">
+                <img class="work-project-image" src="/new-portfolio/assets/easyqrcode_full.webp" alt="">
+                <div class="work-project-container-overlay">
+                    <h3 class="work-project-container-overlay-title">Easy QR Code</h3>
+                    <p class="work-project-container-overlay-text">Complex is just a simple and responsive ecommerce template made with pure HTML, CSS and JS</p>
+                </div>
+            </div>
+
+            <div class="work-project-container">
+                <img class="work-project-image" src="/new-portfolio/assets/complex_full.webp" alt="">
+                <div class="work-project-container-overlay">
+                    <h3 class="work-project-container-overlay-title">Complex</h3>
+                    <p class="work-project-container-overlay-text">Complex is just a simple and responsive ecommerce template made with pure HTML, CSS and JS</p>
+                </div>
+            </div>
+
+            <div class="work-project-container">
+                <img class="work-project-image" src="/new-portfolio/assets/afterlink_full.webp" alt="">
+                <div class="work-project-container-overlay">
+                    <h3 class="work-project-container-overlay-title">Afterlink</h3>
+                    <p class="work-project-container-overlay-text">Complex is just a simple and responsive ecommerce template made with pure HTML, CSS and JS</p>
+                </div>
+            </div>
+
+            <div class="work-project-container">
+                <img class="work-project-image" src="/new-portfolio/assets/coloris_full.webp" alt="">
+                <div class="work-project-container-overlay">
+                    <h3 class="work-project-container-overlay-title">Coloris</h3>
+                    <p class="work-project-container-overlay-text">Simple color pallet generator made in React</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="contacts-section">
+
+        <h2 class="contacts-title">Let’s Talk</h2>
+
+        <div class="contacts-containers-wraper">
+            
+            <div class="contact-container" data-name="github" onclick="OnContactClick(this)">
+                <div class="contact-magnetic-object"><img class="contact-magnetic-object-image" src="https://img.icons8.com/glyph-neue/96/github.png" alt=""></div>
+                <div class="contact-text-wrapper">
+                    <p class="contact-text">GitHub</p>
+                    <p class="contact-value">github.com/Ramiro-Ventura</p>
+                </div>
+            </div>
+
+            <div class="contact-container" data-name="linkedin" onclick="OnContactClick(this)">
+                <div class="contact-magnetic-object"><img class="contact-magnetic-object-image" src="https://img.icons8.com/ios-filled/96/linkedin.png" alt=""></div>
+                <div class="contact-text-wrapper">
+                    <p class="contact-text">Linkedin</p>
+                    <p class="contact-value">linkedin.com/in/ramiro-ventura</p>
+                </div>            
+            </div>
+
+            <div class="contact-container" data-name="email" onclick="OnContactClick(this)">
+                <div class="contact-magnetic-object"><img class="contact-magnetic-object-image" src="https://img.icons8.com/ios-filled/96/gmail-new.png" alt=""></div>
+                <div class="contact-text-wrapper">
+                    <p class="contact-text">Email</p>
+                    <p class="contact-value">ramiro.herlander.ventura@gmail.com</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="footer row">
+
+        <div class="col-12 col-sm-4 d-flex align-center justify-center">
+            <p class="footer-name">RAMIRO</p>
+        </div>
+        <div class="col-12 col-sm-4 d-flex align-center justify-center">
+            <p class="footer-made">Made with <span style="color: #ff5e5e;">♥</span> by the beach</p>
+        </div>
+        <div class="col-12 col-sm-4 d-flex align-center justify-center">
+            <p class="footer-name">VENTURA</p>
+        </div>
+
+    </footer>
+
+</body>
+</html>
