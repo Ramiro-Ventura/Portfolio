@@ -394,7 +394,8 @@ function ContactAnimations(){
         .to({}, { duration: 0.2 })
         .to('.contacts-section', {
 
-            yPercent: -35
+            yPercent: -35,
+            borderRadius: '0px 0px 45px 45px'
         }, ">");
 
     }

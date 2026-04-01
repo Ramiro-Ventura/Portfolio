@@ -147,7 +147,7 @@ html {
 
 body {
 
-    background-color: var(--primary-color);
+    background-color: var(--text-color);
     overflow-x: hidden;
 }
 
