@@ -1,33 +1,56 @@
 window.addEventListener('load', () => {
 
     //Always play first time going down
-    //playUp -> Rest the animation when above the screen if true, it not resets if false
-    //playDown -> Rest the animation when below the screen if true, it not resets if false
+    //playUp -> Play the animation when going up if true, it not plays of false
+    //playDown -> Play the animation when going down if true, it not plays if false
 
     let scrollTrigger = {
 
-        selector: '.about-me-image-wrapper',
-        triggerDown: 'center 80%',
-        triggerUp: 'center 20%',
-        transition: 0.4,
-        playUp: true,
+        triggerDown: 'top 90%',
+        playUp: false,
         playDown: true,
         debug: true
     };
 
-    let from = {
+    let animation = new Animations(scrollTrigger);
 
-        opacity: 0,
-        x: '100%'
-    };
+    let aboutMeImageAnimation = {
 
-    let to = {
+        transition: 0.4,
+        from: {
 
-        opacity: 1,
-        x: 0
+            opacity: 0,
+            x: '100%'
+        },
+        to: {
+            opacity: 1,
+            x: 0
+        }
     }
 
-    new Animations({scrollTrigger, from, to});
+
+    let aboutMeTextAnimation = {
+
+        transition: 0.4,
+        from: {
+
+            opacity: 0,
+            x: '-100%'
+        },
+        to: {
+            opacity: 1,
+            x: 0
+        }
+    }
+
+    animation.create('.about-me-text-container', aboutMeTextAnimation);
+    animation.create('.about-me-image-wrapper', aboutMeImageAnimation);
+    animation.create('.work-project-container', {
+
+        transition: 0.8,
+        from: { opacity: 0 },   
+        to: { opacity: 1 }
+    });
 
     //CheckVersion();
     //if (window.innerWidth >= 992) window.location.replace('/new-portfolio')
