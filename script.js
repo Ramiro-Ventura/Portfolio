@@ -307,17 +307,6 @@ function WorkAnimations(){
 
 function ContactAnimations(){
 
-    /*const timeline = gsap.timeline({
-        scrollTrigger: {
-            id: "contacts-section",
-            trigger: ".contacts-section",
-            start: "top top",
-            end: "+=400%",
-            scrub: 1,
-            pin: true
-        }
-    });*/
-
     TimelineAnimations();
     const contactContainers = gsap.utils.toArray('.contact-container');
 
@@ -399,44 +388,6 @@ function ContactAnimations(){
         }, ">");
 
     }
-
-    /*function TimelineAnimations(timeline, magneticObject, contactText){
-
-        gsap.set(contactText, { transformPerspective: 200 })
-
-        timeline.to('.contacts-title', {
-
-            opacity: 1,
-            //duration: 5,
-            ease: "power2.out"
-        })
-        .to('.contacts-title', {
-
-            y: 0,
-            top: 0,
-            //duration: 8,
-            ease: "expo.out"
-
-        })
-        .from(magneticObject, { 
-
-            xPercent: -200,   
-            opacity: 0,
-            //duration: 8,
-            ease: "elastic.out(0.7, 0.3)",
-
-        })
-        .from(contactText, {
-
-            rotateX: "90deg",
-            z: -200,
-            opacity: 0.2,
-            ease: "power2.out",
-            //duration: 8
-
-        }, "<");
-
-    }*/
 
     function MagnetismEffect(magneticObject){
 

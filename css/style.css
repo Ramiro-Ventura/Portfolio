@@ -146,6 +146,13 @@
     box-shadow: 10px 10px 10px 10px rgba(20, 20, 20, 0.1);
 }
 
+.about-me-images-picture{
+
+    width: 100%;
+    height: fit-content;
+    aspect-ratio: 1 / 1;
+}
+
 .about-me-image {
 
     width: 100%;
@@ -237,27 +244,27 @@
 
 .work-project-complex{
 
-    background-image: url("/new-portfolio/assets/complex_full.webp");
+    background-image: url("/new-portfolio/assets/complex.webp");
 }
 
 .work-project-afterlink{
 
-    background-image: url("/new-portfolio/assets/afterlink_full.webp");
+    background-image: url("/new-portfolio/assets/afterlink.webp");
 }
 
 .work-project-easyqrcode{
 
-    background-image: url("/new-portfolio/assets/easyqrcode_full.webp");
+    background-image: url("/new-portfolio/assets/easyqrcode.webp");
 }
 
 .work-project-wavetunes{
 
-    background-image: url("/new-portfolio/assets/wavetunes_full.webp");
+    background-image: url("/new-portfolio/assets/wavetunes.webp");
 }
 
 .work-project-coloris{
 
-    background-image: url("/new-portfolio/assets/coloris_full.webp");
+    background-image: url("/new-portfolio/assets/coloris.webp");
 }
 
 
@@ -569,7 +576,7 @@
 }
 
 
-@media (width < 1600px) {
+@media (width < 1400px) {
 
     .hero-name{
 
@@ -662,7 +669,7 @@
 
 }
 
-@media (width < 1300px) {
+@media (width < 1200px) {
     
     .hero-name{
 

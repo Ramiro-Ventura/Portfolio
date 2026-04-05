@@ -7,7 +7,6 @@
 
     <meta name="description" content="Ramiro Ventura | Full-Stack Developer & Creative Coder. Exploring the intersection of clean code and innovative design. View my professional journey and projects.">
 
-    <link rel="stylesheet" href="/new-portfolio/css/grid.css">
     <link rel="stylesheet" href="/new-portfolio/css/main.css">
     <link rel="stylesheet" href="/new-portfolio/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
@@ -15,7 +14,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
-    <script src="https://unpkg.com/split-type"></script>
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <script src="/new-portfolio/script.js"></script>
 
@@ -92,10 +90,10 @@
 
         <div class="about-me-container">
 
-            <div class="container-fluid height-full">
-                <div class="row height-full">
+            <div class="container-fluid height-100">
+                <div class="row height-100">
 
-                    <div class="col-12 col-md-6 col-xl-8 about-me-texts-container">
+                    <div class="col-12 col-md-6 col-lg-7 col-xl-8 about-me-texts-container">
 
                         <div class="about-me-text-container">
                             <h2 class="about-me-title">😁 Who am I?</h2>
@@ -140,30 +138,58 @@
 
                     </div>
 
-                    <div class="col-12 col-md-6 col-xl-4 about-me-images-container">
+                    <div class="col-12 col-md-6 col-lg-5 col-xl-4 about-me-images-container">
 
                         <div class="about-me-image-wrapper">
-                            <img class="about-me-image" src="/new-portfolio/assets/photo_perfil_2.webp" alt="">
+
+                            <picture class="about-me-images-picture">
+                                <source media="(width < 768px)"  srcset="/new-portfolio/assets/my_photo_300.webp">
+                                <source media="(width < 1400px)" srcset="/new-portfolio/assets/my_photo_400.webp">
+                                <img loading="lazy" class="about-me-image" src="/new-portfolio/assets/my_photo_550.webp" alt="">
+                            </picture>
+
                             <p class="about-me-image-text">This is me</p>
                         </div>
 
                         <div class="about-me-image-wrapper">
-                            <img class="about-me-image object-position-left" src="/new-portfolio/assets/eped.webp" alt="">
+
+                            <picture class="about-me-images-picture">
+                                <source media="(width < 768px)"  srcset="/new-portfolio/assets/my_school_300.webp">
+                                <source media="(width < 1400px)" srcset="/new-portfolio/assets/my_school_400.webp">
+                                <img class="about-me-image" src="/new-portfolio/assets/my_school_550.webp" alt="">
+                            </picture>
+
                             <p class="about-me-image-text">My School</p>
                         </div>
 
                         <div class="about-me-image-wrapper">
-                            <img class="about-me-image" src="/new-portfolio/assets/work.webp" alt="">
+
+                            <picture class="about-me-images-picture">
+                                <source media="(width < 768px)"  srcset="/new-portfolio/assets/work_300.webp">
+                                <source media="(width < 1400px)" srcset="/new-portfolio/assets/work_400.webp">
+                                <img class="about-me-image" src="/new-portfolio/assets/work_550.webp" alt="">
+                            </picture>
+
                             <p class="about-me-image-text">Coffee. Code. Debug. Repeat.</p>
                         </div>
 
                         <div class="about-me-image-wrapper">
-                            <img class="about-me-image" src="/new-portfolio/assets/awards.webp" alt="">
+
+                            <picture class="about-me-images-picture">
+                                <source media="(width < 768px)"  srcset="/new-portfolio/assets/awards_300.webp">
+                                <source media="(width < 1400px)" srcset="/new-portfolio/assets/awards_400.webp">
+                                <img class="about-me-image" src="/new-portfolio/assets/awards_550.webp" alt="">
+                            </picture>
+
                             <p class="about-me-image-text">Academic Highlights</p>
                         </div>
 
                         <div class="about-me-image-wrapper">
-                            <img class="about-me-image" src="/new-portfolio/assets/bodyboard.webp" alt="">
+                            <picture class="about-me-images-picture">
+                                <source media="(width < 768px)"  srcset="/new-portfolio/assets/bodyboard_300.webp">
+                                <source media="(width < 1400px)" srcset="/new-portfolio/assets/bodyboard_400.webp">
+                                <img class="about-me-image" src="/new-portfolio/assets/bodyboard_550.webp" alt="" loading="lazy">
+                            </picture>
                             <p class="about-me-image-text">This is not me</p>
                         </div>
 
