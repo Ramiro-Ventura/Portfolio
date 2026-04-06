@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /project/
+
+Sitemap: https://www.ramiro-ventura.com/sitemap.xml

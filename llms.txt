@@ -1,0 +1,17 @@
+# Ramiro Ventura - Creative Full Stack Developer
+
+> A portfolio showcasing a blend of technical full-stack expertise and creative interactive design.
+
+## Website Sections
+- [About me](https://www.ramiro-ventura.com/#about-me): Personal background, core values, and personality traits.
+- [Work](https://www.ramiro-ventura.com/#work-section): A showcase of developed applications and websites.
+- [Contacts](https://www.ramiro-ventura.com/#contacts-section): Professional links including GitHub, LinkedIn, and Email.
+
+## Content Resume
+Hello 👋, my name is Ramiro Ventura.
+I’m a creative and technical Full Stack developer. I consider myself introverted, curious, patient, and a fast learner. I am always hungry for more knowledge, especially in the fields of technology, programming, and music.
+I take pride in my work and always strive for excellence. My core philosophy is to never have my creativity suppressed, ensuring every project has a unique, high-quality touch.
+
+## Technical Notes
+- **Desktop:** High-fidelity interactive experience powered by GSAP animations and advanced transitions.
+- **Mobile:** Optimized, cleaner, and lightweight version focused on performance and readability.
