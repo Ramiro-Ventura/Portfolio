@@ -1,9 +1,16 @@
 section{
 
-    min-height: 100dvh;
+    min-height: 100vh;
     height: fit-content;
     padding: var(--space-xxl) var(--space-xl);
     background-color: var(--primary-color);
+}
+
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .hero-section{
@@ -11,7 +18,7 @@ section{
     display: flex;
     position: relative;
     width: 100%;
-    height: 100dvh;
+    height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -49,7 +56,7 @@ section{
     justify-content: center;
     align-items: center;
     gap: var(--space-xl);
-    height: 100dvh;
+    height: 100vh;
 }
 
 .about-me-text-container{
@@ -113,6 +120,19 @@ section{
     box-shadow: 10px 10px 10px 10px rgba(20, 20, 20, 0.1);
 }
 
+.about-me-image-wrapper:hover{
+
+    rotate: 0deg !important;
+    cursor: pointer;
+}
+
+.about-me-images-picture{
+
+    width: 100%;
+    height: fit-content;
+    aspect-ratio: 1 / 1;
+}
+
 .about-me-image {
 
     width: 100%;
@@ -170,14 +190,29 @@ section{
     overflow: hidden;
 }
 
+.work-project-image-picture{
+
+    display: block;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--text-color);
+    border-radius: var(--radius-m);
+}
+
 .work-project-image{
 
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: top;
-    border-radius: var(--radius-m);
-    border: 1px solid var(--text-color);
+    transition: var(--time-m) ease-out;
+}
+
+.work-project-image:hover{
+
+    cursor: pointer;
+    scale: 1.1;
 }
 
 .work-project-container-overlay{
@@ -191,7 +226,7 @@ section{
     flex-direction: column;
     padding: var(--space-l);
     border-radius: var(--radius-m);
-
+    pointer-events: none;
 }
 
 .work-project-container-overlay-title{
@@ -244,6 +279,7 @@ section{
     flex-direction: row;
     gap: var(--space-m);
     cursor: pointer;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .contact-magnetic-object{
@@ -294,7 +330,7 @@ section{
 
     position: relative;
     width: 100%;
-    height: 35dvh;
+    height: 35vh;
     background-color: var(--text-color);
     padding: var(--space-l);
 }
@@ -441,7 +477,7 @@ section{
 
 
 
-@media (width < 1600px){
+@media (width < 1400px){
 
     .footer-name{
 
@@ -449,7 +485,7 @@ section{
     }
 }   
 
-@media (width < 1300px){
+@media (width < 1200px){
 
     .hero-name{
 
@@ -466,6 +502,10 @@ section{
     .about-me-image-container{
 
         width: 50%;
+    }
+
+    .about-me-image-wrapper {
+        padding: var(--space-sm);
     }
 
     .about-me-text p {
@@ -510,10 +550,14 @@ section{
 
 @media (width < 992px){
 
-    .about-me-section{
+    section{
 
-        padding: var(--space-l);
+        padding: var(--space-xl) var(--space-l);
     }
+
+
+
+
 
     .about-me-texts-container{
 
@@ -536,7 +580,6 @@ section{
     .about-me-image-wrapper {
         height: 80%;
         width: auto;
-        padding: var(--space-sm);
     }
 
 
@@ -571,6 +614,14 @@ section{
 
 @media (width < 768px){
 
+    section {
+        padding: var(--space-l) var(--space-ml);
+    }
+
+
+
+
+
     .hero-name{
 
         font-size: 6rem;
@@ -580,9 +631,6 @@ section{
 
 
 
-    .about-me-section {
-        padding: var(--space-sm) var(--space-l);
-    }
 
     .about-me-title{
 
@@ -602,9 +650,7 @@ section{
 
 
 
-    .work-section {
-        padding: var(--space-sm) var(--space-l);
-    }
+
 
     .work-project-container{
 
@@ -616,6 +662,7 @@ section{
         font-size: 2rem;
         font-weight: 700;
     }
+
 
 
 
@@ -674,6 +721,7 @@ section{
     section{
 
         padding: var(--space-l) var(--space-m);
+
     }
 
 
@@ -689,9 +737,6 @@ section{
 
 
 
-    .about-me-section {
-        padding: var(--space-sm);
-    }
 
     .about-me-title{
 
@@ -719,9 +764,8 @@ section{
     }
 
 
-    .work-section {
-         padding: var(--space-sm);
-    }
+
+
 
     .work-title{
 
@@ -744,6 +788,12 @@ section{
     }
 
 
+
+
+    .contacts-section{
+
+        justify-content: space-between;
+    }
 
     .contacts-title{
 
@@ -770,7 +820,6 @@ section{
         align-items: center;
     }
 
-
     .contact-text{
 
         font-size: 1.7rem;
@@ -780,16 +829,6 @@ section{
 
         font-size: 0.9rem;
         font-weight: 300;
-    }
-
-
-
-
-
-
-    .footer{
-
-        height: 25dvh;
     }
 
 }

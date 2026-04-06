@@ -6,10 +6,10 @@ window.addEventListener('load', () => {
 
     let scrollTrigger = {
 
-        triggerDown: 'top 90%',
+        triggerDown: 'center 85%',
         playUp: false,
         playDown: true,
-        debug: true
+        debug: false
     };
 
     let animation = new Animations(scrollTrigger);
@@ -28,7 +28,6 @@ window.addEventListener('load', () => {
         }
     }
 
-
     let aboutMeTextAnimation = {
 
         transition: 0.4,
@@ -45,16 +44,29 @@ window.addEventListener('load', () => {
 
     animation.create('.about-me-text-container', aboutMeTextAnimation);
     animation.create('.about-me-image-wrapper', aboutMeImageAnimation);
+    animation.create('.work-title, .contacts-title', {
+
+        transition: 0.4,
+        from: { opacity: 0 },
+        to: { opacity: 1 }
+    });
     animation.create('.work-project-container', {
 
-        transition: 0.8,
-        from: { opacity: 0 },   
-        to: { opacity: 1 }
+        transition: 0.4,
+        from: { opacity: 0, scale: 0.7 },   
+        to: { opacity: 1, scale: 1 }
+    });
+    animation.create('.contact-container', {
+
+        from: { opacity: 0, scale: 0 },   
+        to: { opacity: 1, scale: 1 }
     });
 
     //CheckVersion();
     //if (window.innerWidth >= 992) window.location.replace('/new-portfolio')
-    const lenis = new Lenis();
+    const lenis = new Lenis({
+        duration: 0.7,  
+    })
 
     function raf(time) {
         lenis.raf(time);
@@ -82,10 +94,12 @@ function OnContactClick(contactContainer){
     }else{
 
         let link = contactContainer.dataset.name == 'github' ? 'https://github.com/Ramiro-Ventura' : 'https://www.linkedin.com/in/ramiro-ventura/';
-        window.open(link, "_blank");
+        window.open(link, "_blank", 'noopener,noreferrer');
     }
 
 }
 
+function OpenProject(link){
 
-
+    window.open(link, '_blank', 'noopener,noreferrer');
+}
