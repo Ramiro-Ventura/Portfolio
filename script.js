@@ -382,10 +382,10 @@ function ContactAnimations(){
         .addLabel('contacts')
         .to({}, { duration: 0.2 })
         .to('.contacts-section', {
-
             yPercent: -35,
             borderRadius: '0px 0px 45px 45px'
-        }, ">");
+        }, ">")
+        .to('body', { backgroundColor: '#eee' }, '<');
 
     }
 
@@ -514,7 +514,7 @@ function ContactAnimations(){
 
             }else{
 
-                window.open(links[contactContainer.dataset.name], "_blank");
+                window.open(links[contactContainer.dataset.name], "_blank", 'noopener,noreferrer');
             }
         });
 
@@ -683,4 +683,9 @@ function unlockScroll() {
     document.body.style.top = '';
     document.body.style.width = '';
     window.scrollTo(0, scrollY);
+}
+
+function OpenProject(link){
+
+    window.open(link, '_blank', 'noopener,noreferrer');
 }

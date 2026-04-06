@@ -3,40 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramiro Ventura</title>
+    <title>Ramiro Ventura - Creative Full Stack Dev</title>
 
-    <meta name="description" content="Ramiro Ventura | Full-Stack Developer & Creative Coder. Exploring the intersection of clean code and innovative design. View my professional journey and projects.">
+    <meta name="description" content="Hello, I’m Ramiro Ventura, a creative and technical Full Stack developer with experience making functional APP’s and responsive Websites.">
+
+    <link rel="canonical" href="https://www.ramiro-ventura.com/" />
+
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="https://www.ramiro-ventura.com/mobile" />
+
+    <link rel="shortcut icon" href="/new-portfolio/favicon.ico" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Permanent+Marker&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" defer>
 
     <link rel="stylesheet" href="/new-portfolio/css/main.css">
     <link rel="stylesheet" href="/new-portfolio/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" defer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-    <script src="/new-portfolio/script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
+    <script src="/new-portfolio/script.js" defer></script>
 
     <!-- <script src="https://cdn.jsdelivr.net/gh/Ramiro-Ventura/Magic-Cursor@latest/magic-cursor.js"></script> -->
-    <script src="magic-cursor.js"></script>
-    <script src="physics-engine.js"></script>
+    <script src="magic-cursor.js" defer></script>
+    <script src="physics-engine.js" defer></script>
 
 </head>
 <body class="scroll-container-hide">    
-
-    <footer class="footer row">
-
-        <div class="col-4 d-flex align-center justify-center">
-            <p class="footer-name">RAMIRO</p>
-        </div>
-        <div class="col-4 d-flex align-center justify-center">
-            <p class="footer-made">Made with <span style="color: #ff5e5e;">♥</span> by the beach</p>
-        </div>
-        <div class="col-4 d-flex align-center justify-center">
-            <p class="footer-name">VENTURA</p>
-        </div>
-
-    </footer>
 
     <div class="follower" id="follower"><p></p></div>
 
@@ -46,7 +43,7 @@
         <div class="menu-btn-stroke"></div>
     </div>
 
-    <div class="menu-container">
+    <menu class="menu-container">
 
         <div class="menu-animation-container">
             <div class="menu-animation-columns-container">
@@ -75,16 +72,19 @@
             <div class="menu-links" onclick="OnMenuItemClick('contacts-section', 'contacts')"><i class="fa-solid fa-link menu-links-icon"></i><p>CONTACT ME</p></div>
         </div>
 
-    </div>
+    </menu>
+
+    <!--Hidden H1 tag for SEO performance-->
+    <h1 class="sr-only">Ramiro Ventura Full Stack Developer</h1>
 
     <section class="hero-section">
 
         <div class="hero-image-container hero-image-container-top">
-            <img class="hero-image" src="/new-portfolio/assets/wave-top.webp" alt="">
+            <img class="hero-image" src="/new-portfolio/assets/wave-top.webp" alt="wave top image">
             <p class="hero-name ramiro">Ramiro</p>
         </div>
         <div class="hero-image-container hero-image-container-bottom">
-            <img class="hero-image" src="/new-portfolio/assets/wave-bottom.webp" alt="">
+            <img class="hero-image" src="/new-portfolio/assets/wave-bottom.webp" alt="wave bottom image">
             <p class="hero-name ventura">Ventura</p>
         </div>
 
@@ -97,7 +97,7 @@
 
                         <div class="about-me-text-container">
                             <h2 class="about-me-title">😁 Who am I?</h2>
-                            <div class="about-me-text"><p>Hello 👋, my name is <b>Ramiro Ventura</b>.</p><p>I’m a <span id="age-span"></span>-year-old creative and technical <b>Full-Stack developer</b>.</p><p>I consider myself <b>introverted, curious, patient, creative, fast learning</b> and i'm always hunger for more knowledge especially in the fields of technology, programming, music or anything really.</p><p>I take pride in my <b>work</b> and always give my <b>best</b> and the only thing I really dislike is having my <b>creativity</b> suppressed.</p></div>
+                            <div class="about-me-text"><p>Hello 👋, my name is <b>Ramiro Ventura</b>.</p><p>I’m a <span id="age-span"></span>-year-old creative and technical <b>Full Stack developer</b>.</p><p>I consider myself <b>introverted, curious, patient, creative, fast learning</b> and i'm always hunger for more knowledge especially in the fields of technology, programming, music or anything really.</p><p>I take pride in my <b>work</b> and always give my <b>best</b> and the only thing I really dislike is having my <b>creativity</b> suppressed.</p></div>
                         </div>
 
                         <div class="about-me-text-container">
@@ -115,7 +115,7 @@
 
                         <div class="about-me-text-container">
                             <h2 class="about-me-title">💻 Professional Experience</h2>
-                            <div class="about-me-text"><p>During my amateur coder journey, I develop <b>Android Apps</b>, learnt <b>Unity 2D /3D</b>, create <b>Windows Apps</b> in Visual Studio, and then I learned <b>Web Development</b> and began to organize and prototype <b>Full-Stack Apps</b> for the web.</p>
+                            <div class="about-me-text"><p>During my amateur coder journey, I develop <b>Android Apps</b>, learnt <b>Unity 2D /3D</b>, create <b>Windows Apps</b> in Visual Studio, and then I learned <b>Web Development</b> and began to organize and prototype <b>Full Stack Apps</b> for the web.</p>
                                 <p>As part of my <b>TGPSI</b> course, I completed an <b>internship</b> at Reloading, where I worked with technologies like <b>C#, CSS, PHP, JS, SQL, and ASP.NET</b> to develop an internal CRM for managing job proposals.</p>
                                 <p>More recently, I worked at <b>VTXRM</b> as a <b>Technical Consultant</b>. My role involved integrating APIs using <b>C#</b> and <b>ASP.NET</b> for an application developed for our client, <b>Volkswagen UK</b>.</p>
                             </div>
@@ -131,7 +131,7 @@
                         <div class="about-me-text-container">
                             <h2 class="about-me-title">🌊 Interests and Hobbies</h2>
                             <div class="about-me-text"><p>I'm passionate about <b>pop culture</b>, from music to movies and series.</p>
-                                <p>I enjoy playing <b>electric guitar</b>, solving the <b>Rubik's Cube</b>, and <b>reading</b>, but what I really like is to project and develop <b>Full-Stack Apps</b> as well develop some fun tools.</p>
+                                <p>I enjoy playing <b>electric guitar</b>, solving the <b>Rubik's Cube</b>, and <b>reading</b>, but what I really like is to project and develop <b>Full Stack Apps</b> as well develop some fun tools.</p>
                                 <p>I love water sports like <b>Bodyboard</b>, I hate running and I <b>love</b> the going to the <b>beach</b></p>
                             </div>
                         </div>
@@ -145,7 +145,7 @@
                             <picture class="about-me-images-picture">
                                 <source media="(width < 768px)"  srcset="/new-portfolio/assets/my_photo_300.webp">
                                 <source media="(width < 1400px)" srcset="/new-portfolio/assets/my_photo_400.webp">
-                                <img loading="lazy" class="about-me-image" src="/new-portfolio/assets/my_photo_550.webp" alt="">
+                                <img loading="lazy" class="about-me-image" src="/new-portfolio/assets/my_photo_550.webp" alt="profile picture">
                             </picture>
 
                             <p class="about-me-image-text">This is me</p>
@@ -156,7 +156,7 @@
                             <picture class="about-me-images-picture">
                                 <source media="(width < 768px)"  srcset="/new-portfolio/assets/my_school_300.webp">
                                 <source media="(width < 1400px)" srcset="/new-portfolio/assets/my_school_400.webp">
-                                <img class="about-me-image" src="/new-portfolio/assets/my_school_550.webp" alt="">
+                                <img loading="lazy" class="about-me-image" src="/new-portfolio/assets/my_school_550.webp" alt="my school">
                             </picture>
 
                             <p class="about-me-image-text">My School</p>
@@ -167,7 +167,7 @@
                             <picture class="about-me-images-picture">
                                 <source media="(width < 768px)"  srcset="/new-portfolio/assets/work_300.webp">
                                 <source media="(width < 1400px)" srcset="/new-portfolio/assets/work_400.webp">
-                                <img class="about-me-image" src="/new-portfolio/assets/work_550.webp" alt="">
+                                <img loading="lazy" class="about-me-image" src="/new-portfolio/assets/work_550.webp" alt="work">
                             </picture>
 
                             <p class="about-me-image-text">Coffee. Code. Debug. Repeat.</p>
@@ -178,7 +178,7 @@
                             <picture class="about-me-images-picture">
                                 <source media="(width < 768px)"  srcset="/new-portfolio/assets/awards_300.webp">
                                 <source media="(width < 1400px)" srcset="/new-portfolio/assets/awards_400.webp">
-                                <img class="about-me-image" src="/new-portfolio/assets/awards_550.webp" alt="">
+                                <img loading="lazy" class="about-me-image" src="/new-portfolio/assets/awards_550.webp" alt="awards">
                             </picture>
 
                             <p class="about-me-image-text">Academic Highlights</p>
@@ -188,7 +188,7 @@
                             <picture class="about-me-images-picture">
                                 <source media="(width < 768px)"  srcset="/new-portfolio/assets/bodyboard_300.webp">
                                 <source media="(width < 1400px)" srcset="/new-portfolio/assets/bodyboard_400.webp">
-                                <img class="about-me-image" src="/new-portfolio/assets/bodyboard_550.webp" alt="" loading="lazy">
+                                <img loading="lazy" class="about-me-image" src="/new-portfolio/assets/bodyboard_550.webp" alt="hobbies">
                             </picture>
                             <p class="about-me-image-text">This is not me</p>
                         </div>
@@ -205,43 +205,92 @@
     <section class="work-section">
 
         <div class="work-word">
-                <svg viewBox="0 0 100 20" width="100%" height="100%" preserveAspectRatio="none">
-                    <text class="work-word-text"
-                    x="0"
-                    y="15"
-                    font-family="Arial, sans-serif"
-                    font-weight="bold"
-                    fill="white"
-                    textLength="100"
-                    lengthAdjust="spacingAndGlyphs">WORK</text>
-                </svg>
+            <svg viewBox="0 0 100 20" width="100%" height="100%" preserveAspectRatio="none">
+                <text class="work-word-text"
+                x="0"
+                y="15"
+                font-family="Arial, sans-serif"
+                font-weight="bold"
+                fill="white"
+                textLength="100"
+                lengthAdjust="spacingAndGlyphs">WORK</text>
+            </svg>
         </div>
 
-        <div class="work-project-container work-project-wavetunes">
+        <div class="work-project-container" onclick="OpenProject('https:\\wavetunes.ramiro-ventura.com')">
+            <picture class="work-project-image-picture">
+                <source media="(width < 425px)"  srcset="/new-portfolio/assets/wavetunes_550.webp">
+                <source media="(width < 576px)"  srcset="/new-portfolio/assets/wavetunes_750.webp">
+                <source media="(width < 768px)"  srcset="/new-portfolio/assets/wavetunes_950.webp">
+                <source media="(width < 992px)"  srcset="/new-portfolio/assets/wavetunes_1200.webp">
+                <source media="(width < 1200px)" srcset="/new-portfolio/assets/wavetunes_1400.webp">
+                <source media="(width < 1400px)" srcset="/new-portfolio/assets/wavetunes_1600.webp">
+                <img loading="lazy" class="work-project-image" src="/new-portfolio/assets/wavetunes.webp" alt="wavetunes project">
+            </picture>
             <div class="work-project-container-overlay">
                 <h3 class="work-project-container-overlay-title">Wavetunes</h3>
                 <p class="work-project-container-overlay-text">An App where you can just listen to your music for free</p>
             </div>
         </div>
-        <div class="work-project-container work-project-easyqrcode">
+
+        <div class="work-project-container" onclick="OpenProject('https:\\easyqrcode.ramiro-ventura.com')">
+            <picture class="work-project-image-picture">
+                <source media="(width < 425px)"  srcset="/new-portfolio/assets/easyqrcode_550.webp">
+                <source media="(width < 576px)"  srcset="/new-portfolio/assets/easyqrcode_750.webp">
+                <source media="(width < 768px)"  srcset="/new-portfolio/assets/easyqrcode_950.webp">
+                <source media="(width < 992px)"  srcset="/new-portfolio/assets/easyqrcode_1200.webp">
+                <source media="(width < 1200px)" srcset="/new-portfolio/assets/easyqrcode_1400.webp">
+                <source media="(width < 1400px)" srcset="/new-portfolio/assets/easyqrcode_1600.webp">
+                <img loading="lazy" class="work-project-image" src="/new-portfolio/assets/easyqrcode.webp" alt="easyqrcode project">
+            </picture>
             <div class="work-project-container-overlay">
                 <h3 class="work-project-container-overlay-title">Easy QR Code</h3>
                 <p class="work-project-container-overlay-text">Complex is just a simple and responsive ecommerce template made with pure HTML, CSS and JS</p>
             </div>
         </div>
-        <div class="work-project-container work-project-complex">
+        
+        <div class="work-project-container" onclick="OpenProject('https:\\complex.ramiro-ventura.com')">
+            <picture class="work-project-image-picture">
+                <source media="(width < 425px)"  srcset="/new-portfolio/assets/complex_550.webp">
+                <source media="(width < 576px)"  srcset="/new-portfolio/assets/complex_750.webp">
+                <source media="(width < 768px)"  srcset="/new-portfolio/assets/complex_950.webp">
+                <source media="(width < 992px)"  srcset="/new-portfolio/assets/complex_1200.webp">
+                <source media="(width < 1200px)" srcset="/new-portfolio/assets/complex_1400.webp">
+                <source media="(width < 1400px)" srcset="/new-portfolio/assets/complex_1600.webp">
+                <img loading="lazy" class="work-project-image" src="/new-portfolio/assets/complex.webp" alt="complex project">
+            </picture>
             <div class="work-project-container-overlay">
                 <h3 class="work-project-container-overlay-title">Complex</h3>
                 <p class="work-project-container-overlay-text">Complex is just a simple and responsive ecommerce template made with pure HTML, CSS and JS</p>
             </div>
         </div>
-        <div class="work-project-container work-project-afterlink">
+
+        <div class="work-project-container" onclick="OpenProject('https:\\afterlink.ramiro-ventura.com')">
+            <picture class="work-project-image-picture">
+                <source media="(width < 425px)"  srcset="/new-portfolio/assets/afterlink_550.webp">
+                <source media="(width < 576px)"  srcset="/new-portfolio/assets/afterlink_750.webp">
+                <source media="(width < 768px)"  srcset="/new-portfolio/assets/afterlink_950.webp">
+                <source media="(width < 992px)"  srcset="/new-portfolio/assets/afterlink_1200.webp">
+                <source media="(width < 1200px)" srcset="/new-portfolio/assets/afterlink_1400.webp">
+                <source media="(width < 1400px)" srcset="/new-portfolio/assets/afterlink_1600.webp">
+                <img loading="lazy" class="work-project-image" src="/new-portfolio/assets/afterlink.webp" alt="afterlink project">
+            </picture>
             <div class="work-project-container-overlay">
                 <h3 class="work-project-container-overlay-title">Afterlink</h3>
                 <p class="work-project-container-overlay-text">Complex is just a simple and responsive ecommerce template made with pure HTML, CSS and JS</p>
             </div>
         </div>
-        <div class="work-project-container work-project-coloris">
+
+        <div class="work-project-container" onclick="OpenProject('https:\\coloris.ramiro-ventura.com')">
+            <picture class="work-project-image-picture">
+                <source media="(width < 425px)"  srcset="/new-portfolio/assets/coloris_550.webp">
+                <source media="(width < 576px)"  srcset="/new-portfolio/assets/coloris_750.webp">
+                <source media="(width < 768px)"  srcset="/new-portfolio/assets/coloris_950.webp">
+                <source media="(width < 992px)"  srcset="/new-portfolio/assets/coloris_1200.webp">
+                <source media="(width < 1200px)" srcset="/new-portfolio/assets/coloris_1400.webp">
+                <source media="(width < 1400px)" srcset="/new-portfolio/assets/coloris_1600.webp">
+                <img loading="lazy" class="work-project-image" src="/new-portfolio/assets/coloris.webp" alt="coloris project">
+            </picture>
             <div class="work-project-container-overlay">
                 <h3 class="work-project-container-overlay-title">Coloris</h3>
                 <p class="work-project-container-overlay-text">Simple color pallet generator made in React</p>
@@ -257,7 +306,7 @@
         <div class="contacts-containers-wraper">
             
             <div class="contact-container" data-name="github">
-                <div class="container-magnetic-object"><img class="contact-magnetic-object-image" src="https://img.icons8.com/glyph-neue/96/github.png" alt=""></div>
+                <div class="container-magnetic-object"><img loading="lazy" class="contact-magnetic-object-image" src="https://img.icons8.com/glyph-neue/96/github.png" alt="github logo"></div>
                 <div class="contact-text-wrapper github">
                     <p class="contact-text">GitHub</p>
                     <div class="contact-text-underline"></div>
@@ -266,7 +315,7 @@
             </div>
 
             <div class="contact-container" data-name="linkedin">
-                <div class="container-magnetic-object"><img class="contact-magnetic-object-image" src="https://img.icons8.com/ios-filled/96/linkedin.png" alt=""></div>
+                <div class="container-magnetic-object"><img loading="lazy" class="contact-magnetic-object-image" src="https://img.icons8.com/ios-filled/96/linkedin.png" alt="linkedin logo"></div>
                 <div class="contact-text-wrapper linkedin">
                     <p class="contact-text">Linkedin</p>
                     <div class="contact-text-underline"></div>
@@ -275,7 +324,7 @@
             </div>
 
             <div class="contact-container" data-name="email">
-                <div class="container-magnetic-object"><img class="contact-magnetic-object-image" src="https://img.icons8.com/ios-filled/96/gmail-new.png" alt=""></div>
+                <div class="container-magnetic-object"><img loading="lazy" class="contact-magnetic-object-image" src="https://img.icons8.com/ios-filled/96/gmail-new.png" alt="email logo"></div>
                 <div class="contact-text-wrapper email">
                     <p class="contact-text">Email</p>
                     <div class="contact-text-underline"></div>
@@ -286,6 +335,19 @@
 
     </section>
 
+    <footer class="footer row">
+
+        <div class="col-12 col-md-4 d-flex align-center justify-center">
+            <p class="footer-name">RAMIRO</p>
+        </div>
+        <div class="col-12 col-md-4 d-flex align-center justify-center">
+            <p class="footer-made">Made with <span style="color: #ff5e5e;">♥</span> by the beach</p>
+        </div>
+        <div class="col-12 col-md-4 d-flex align-center justify-center">
+            <p class="footer-name">VENTURA</p>
+        </div>
+
+    </footer>
 
 </body>
 </html>
