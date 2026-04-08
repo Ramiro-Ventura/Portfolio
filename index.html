@@ -13,14 +13,8 @@
 
     <link rel="shortcut icon" href="/new-portfolio/favicon.ico" type="image/x-icon">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Permanent+Marker&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" defer>
-
-    <link rel="stylesheet" href="/new-portfolio/css/main.css">
-    <link rel="stylesheet" href="/new-portfolio/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" defer>
-
+    <link rel="stylesheet" href="/new-portfolio/css/main.css" defer>
+    <link rel="stylesheet" href="/new-portfolio/css/style.css" defer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
@@ -66,10 +60,11 @@
         </div>
 
         <div class="menu-content-container">
-            <div class="menu-links" onclick="OnMenuItemClick('hero-section')"><i class="fa-regular fa-house menu-links-icon"></i><p>HOME</p></div>
-            <div class="menu-links" onclick="OnMenuItemClick('hero-section', 'about-me')"><i class="fa-solid fa-circle-info menu-links-icon"></i><p>ABOUT ME</p></div>
-            <div class="menu-links" onclick="OnMenuItemClick('work-section')"><i class="fa-regular fa-folder menu-links-icon"></i><p>WORK</p></div>
-            <div class="menu-links" onclick="OnMenuItemClick('contacts-section', 'contacts')"><i class="fa-solid fa-link menu-links-icon"></i><p>CONTACT ME</p></div>
+            
+            <div class="menu-links" onclick="OnMenuItemClick('hero-section')">                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg><p>HOME</p></div>
+            <div class="menu-links" onclick="OnMenuItemClick('hero-section', 'about-me')">      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h3.5" /><path d="M20 21l2 -2l-2 -2" /><path d="M17 17l-2 2l2 2" /></svg><p>ABOUT ME</p></div>
+            <div class="menu-links" onclick="OnMenuItemClick('work-section')">                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 19l2.757 -7.351a1 1 0 0 1 .936 -.649h12.307a1 1 0 0 1 .986 1.164l-.996 5.211a2 2 0 0 1 -1.964 1.625h-14.026a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2h4l3 3h7a2 2 0 0 1 2 2v2" /></svg><p>WORK</p></div>
+            <div class="menu-links" onclick="OnMenuItemClick('contacts-section', 'contacts')">  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28" /></svg><p>CONTACT ME</p></div>
         </div>
 
     </menu>

@@ -36,7 +36,6 @@
       var(--border-width) calc(var(--border-width) * -1) 0 #000,
       calc(var(--border-width) * -1) var(--border-width) 0 #000,
       var(--border-width) var(--border-width) 0 #000;
-      /*-webkit-text-stroke: 4px black; /* Width and Color */
 }
 
 .ramiro{
@@ -470,7 +469,7 @@
     padding: var(--space-l);
     align-items: start;
     justify-content: center;
-    gap: var(--space-s);
+    gap: var(--space-l);
 }
 
 .menu-links{
@@ -485,19 +484,21 @@
 
 .menu-links-icon{
 
-    color: var(--primary-color);
-    font-size: 0;
+    height: 0;
+    stroke: var(--primary-color);
     transform-origin: center left;
     transition: var(--time-l);
+    object-fit: contain;
 }
 
 .menu-links:hover > .menu-links-icon{
 
-    font-size: 6rem;
+    height: 6rem;
 }
 
 .menu-links p{
 
+    line-height: 1;
     color: var(--primary-color);
     font-size: 6rem;
     font-weight: 900;
@@ -819,12 +820,12 @@
 
     .menu-links:hover > .menu-links-icon{
 
-        font-size: 3.5rem;
+        height: 4rem;
     }
 
     .menu-links p{
 
-        font-size: 3.5rem;
+        font-size: 4rem;
         font-weight: 900;
     }
 
@@ -962,13 +963,18 @@
         height: 3px;
     }
 
-    .menu-content-container{
-
-        gap: var(--space-m);
-    }
-
     .menu-links{
         margin-left: var(--space-s);
+    }
+
+    .menu-links:hover > .menu-links-icon{
+
+        height: 3rem;
+    }
+
+    .menu-links p{
+
+        font-size: 3rem;
     }
 
 }
@@ -1070,13 +1076,12 @@
 
     .menu-links:hover > .menu-links-icon{
 
-        font-size: 2rem;
+        height: 3rem;
     }
 
     .menu-links p{
 
-        font-size: 2rem;
-        font-weight: 700;
+        font-size: 3rem;
     }
 
 }
