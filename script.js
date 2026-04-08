@@ -16,7 +16,7 @@ window.addEventListener("load", () => {
 
 //window.addEventListener('resize', () => CheckVersion());
     
-const CheckVersion = () => { if (window.innerWidth < 992) window.location.replace('/new-portfolio/mobile'); }
+const CheckVersion = () => { if (window.innerWidth < 992) window.location.replace('/new-portfolio/mobile'); };
 
 const SetCurrentAge = () => {
 
@@ -31,7 +31,7 @@ const SetCurrentAge = () => {
     
     ageSpan.innerHTML = age;
 
-}
+};
 
 function MagicCursorSetup(){
 
@@ -71,7 +71,7 @@ function MagicCursorSetup(){
             spawnChance: 0.7,
             decay: 0.01,
             lifetime: 0.2
-        }
+        };
 
         cursor.onHover({
 
