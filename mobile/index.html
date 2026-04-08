@@ -11,13 +11,8 @@
 
     <link rel="shortcut icon" href="/new-portfolio/favicon.ico" type="image/x-icon">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Permanent+Marker&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" defer>
-
     <link rel="stylesheet" href="/new-portfolio/css/main.css" defer>
     <link rel="stylesheet" href="/new-portfolio/mobile/style.css" defer>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" defer>
 
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
     <script src="/new-portfolio/mobile/script.js" defer></script>
@@ -29,42 +24,24 @@
 <body>    
 
 
-    <!--<div class="menu-btn" data-status="close" onclick="MenuAnimations(this)">
+    <div class="menu-btn" data-status="close" onclick="OnMenuBtnClick()">
         <div class="menu-btn-stoke"></div>
         <div class="menu-btn-stoke"></div>
         <div class="menu-btn-stoke"></div>
     </div>
 
-    <div class="menu-container">
+    <div class="menu-container" data-status="close">
 
-        <div class="menu-animation-container">
-            <div class="menu-animation-columns-container">
-                <div class="menu-animation-column menu-animation-column-top"></div>
-                <div class="menu-animation-column menu-animation-column-top"></div>
-                <div class="menu-animation-column menu-animation-column-top"></div>
-                <div class="menu-animation-column menu-animation-column-top"></div>
-                <div class="menu-animation-column menu-animation-column-top"></div>
-                <div class="menu-animation-column menu-animation-column-top"></div>
-            </div>
-
-            <div class="menu-animation-columns-container">
-                <div class="menu-animation-column menu-animation-column-bottom"></div>
-                <div class="menu-animation-column menu-animation-column-bottom"></div>
-                <div class="menu-animation-column menu-animation-column-bottom"></div>
-                <div class="menu-animation-column menu-animation-column-bottom"></div>
-                <div class="menu-animation-column menu-animation-column-bottom"></div>
-                <div class="menu-animation-column menu-animation-column-bottom"></div>
-            </div>
-        </div>
+       <canvas class="menu-canvas"></canvas>
 
         <div class="menu-content-container">
-            <div class="menu-links" onclick="OnMenuItemClick('hero-section')"><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg><p>HOME</p></div>
-            <div class="menu-links" onclick="OnMenuItemClick('hero-section', 'about-me')"><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 9h.01" /><path d="M11 12h1v4h1" /></svg><p>ABOUT ME</p></div>
-            <div class="menu-links" onclick="OnMenuItemClick('work-section')"><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 3h3l2 2h5a2 2 0 0 1 2 2v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2" /><path d="M17 16v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2h2" /></svg><p>WORK</p></div>
-            <div class="menu-links" onclick="OnMenuItemClick('contacts-section', 'contacts')"><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 21v-6.5a3.5 3.5 0 0 0 -7 0v6.5h18v-6a4 4 0 0 0 -4 -4h-10.5" /><path d="M12 11v-8h4l2 2l-2 2h-4" /><path d="M6 15h1" /></svg><p>CONTACT ME</p></div>
+            <div class="menu-links" onclick="OnMenuItemClick('hero-section')">                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg><p>HOME</p></div>
+            <div class="menu-links" onclick="OnMenuItemClick('hero-section', 'about-me')">      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h3.5" /><path d="M20 21l2 -2l-2 -2" /><path d="M17 17l-2 2l2 2" /></svg><p>ABOUT ME</p></div>
+            <div class="menu-links" onclick="OnMenuItemClick('work-section')">                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 19l2.757 -7.351a1 1 0 0 1 .936 -.649h12.307a1 1 0 0 1 .986 1.164l-.996 5.211a2 2 0 0 1 -1.964 1.625h-14.026a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2h4l3 3h7a2 2 0 0 1 2 2v2" /></svg><p>WORK</p></div>
+            <div class="menu-links" onclick="OnMenuItemClick('contacts-section', 'contacts')">  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28" /></svg><p>CONTACT ME</p></div>
         </div>
 
-    </div>-->
+    </div>
 
     <section class="hero-section">
         <h1>

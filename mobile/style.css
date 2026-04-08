@@ -56,7 +56,9 @@ h1{
     justify-content: center;
     align-items: center;
     gap: var(--space-xl);
-    height: 100vh;
+    height: fit-content;
+    min-height: 100vh;
+    padding: var(--space-l) 0;
 }
 
 .about-me-text-container{
@@ -438,40 +440,51 @@ h1{
     padding: var(--space-l);
     align-items: start;
     justify-content: center;
+    gap: var(--space-l);
 }
 
 .menu-links{
 
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: var(--space-m);
     color: var(--primary-color);
-    font-size: 6rem;
-    font-weight: 900;
     margin-left: var(--space-l);
+    cursor: pointer;
 }
 
 .menu-links-icon{
 
-    width: 0;
+    height: 0;
+    stroke: var(--primary-color);
     transform-origin: center left;
     transition: var(--time-l);
+    object-fit: contain;
 }
 
 .menu-links:hover > .menu-links-icon{
 
-    width: 128px;
+    height: 6rem;
 }
 
-.menu-links *{
+.menu-links p{
 
+    line-height: 1;
     color: var(--primary-color);
     font-size: 6rem;
     font-weight: 900;
 }
 
 
+.menu-canvas{
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    z-index: 4;
+}
 
 
 
@@ -562,13 +575,10 @@ h1{
     .about-me-texts-container{
 
         flex-direction: column;
-        gap: var(--space-ml);
-        padding: var(--space-m) 0;
     }
 
     .about-me-text-container {
         width: 100%;
-        height: 50%;
         gap: var(--space-m);
     }
 
@@ -609,6 +619,25 @@ h1{
     .footer-made{
 
         font-size: 1rem;
+    }
+
+
+
+
+    .menu-links{
+
+        margin-left: var(--space-m);
+    }
+
+    .menu-links:hover > .menu-links-icon{
+
+        height: 4rem;
+    }
+
+    .menu-links p{
+
+        font-size: 4rem;
+        font-weight: 900;
     }
 }
 
@@ -712,6 +741,34 @@ h1{
     }
 
 
+        .menu-btn{
+
+        width: 50px;
+        height: 50px;
+        top: var(--space-s);
+        right: var(--space-s);
+    }
+
+    .menu-btn-stroke{
+
+        width: 25px;
+        height: 3px;
+    }
+
+    .menu-links{
+        margin-left: var(--space-s);
+    }
+
+    .menu-links:hover > .menu-links-icon{
+
+        height: 3rem;
+    }
+
+    .menu-links p{
+
+        font-size: 3rem;
+    }
+
 
 }
 
@@ -741,10 +798,6 @@ h1{
     .about-me-title{
 
         font-size: 1.6rem;
-    }
-
-    .about-me-texts-container{
-        gap: var(--space-m);
     }
 
     .about-me-text p{
@@ -829,6 +882,29 @@ h1{
 
         font-size: 0.9rem;
         font-weight: 300;
+    }
+
+
+
+
+    
+    .menu-content-container {
+        padding: var(--space-s);
+    }
+
+    .menu-links{
+
+        gap: var(--space-s);
+    }
+
+    .menu-links:hover > .menu-links-icon{
+
+        height: 3rem;
+    }
+
+    .menu-links p{
+
+        font-size: 3rem;
     }
 
 }
