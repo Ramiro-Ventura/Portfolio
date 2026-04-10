@@ -8,7 +8,7 @@
 - [Contacts](https://www.ramiro-ventura.com/#contacts-section): Professional links including GitHub, LinkedIn, and Email.
 
 ## Content Resume
-Hello 👋, my name is Ramiro Ventura.
+Hello, my name is Ramiro Ventura.
 I’m a creative and technical Full Stack developer. I consider myself introverted, curious, patient, and a fast learner. I am always hungry for more knowledge, especially in the fields of technology, programming, and music.
 I take pride in my work and always strive for excellence. My core philosophy is to never have my creativity suppressed, ensuring every project has a unique, high-quality touch.
 
