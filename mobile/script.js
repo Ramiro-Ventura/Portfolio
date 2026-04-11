@@ -1,139 +1,3 @@
-let lenis;
-
-window.addEventListener('load', () => {
-
-    //Always play first time going down
-    //playUp -> Play the animation when going up if true, it not plays of false
-    //playDown -> Play the animation when going down if true, it not plays if false
-
-    let scrollTrigger = {
-
-        triggerDown: 'center 85%',
-        playUp: false,
-        playDown: true,
-        debug: false
-    };
-
-    let animation = new Animations(scrollTrigger);
-
-    let aboutMeImageAnimation = {
-
-        transition: 0.4,
-        from: {
-
-            opacity: 0,
-            x: '100%'
-        },
-        to: {
-            opacity: 1,
-            x: 0
-        }
-    }
-
-    let aboutMeTextAnimation = {
-
-        transition: 0.4,
-        from: {
-
-            opacity: 0,
-            x: '-100%'
-        },
-        to: {
-            opacity: 1,
-            x: 0
-        }
-    }
-
-    animation.create('.about-me-text-container', aboutMeTextAnimation);
-    animation.create('.about-me-image-wrapper', aboutMeImageAnimation);
-    animation.create('.work-title, .contacts-title', {
-
-        transition: 0.4,
-        from: { opacity: 0 },
-        to: { opacity: 1 }
-    });
-    animation.create('.work-project-container', {
-
-        transition: 0.4,
-        from: { opacity: 0, scale: 0.7 },   
-        to: { opacity: 1, scale: 1 }
-    });
-    animation.create('.contact-container', {
-
-        from: { opacity: 0, scale: 0 },   
-        to: { opacity: 1, scale: 1 }
-    });
-
-    //CheckVersion();
-    //if (window.innerWidth >= 992) window.location.replace('/new-portfolio')
-    lenis = new Lenis({
-        duration: 0.7,  
-    })
-
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-});
-
-//window.addEventListener('resize', () => CheckVersion());
-    
-//const CheckVersion = () => { if (window.innerWidth >= 992) window.location.replace('/new-portfolio'); }
-
-function OnContactClick(contactContainer){
-
-    if(contactContainer.dataset.name === "email"){
-
-        navigator.clipboard.writeText('ramiro.herlander.ventura@gmail.com')
-        .then(() => {
-
-            alert('Email copied');
-        });
-
-    }else{
-
-        let link = contactContainer.dataset.name == 'github' ? 'https://github.com/Ramiro-Ventura' : 'https://www.linkedin.com/in/ramiro-ventura/';
-        window.open(link, "_blank", 'noopener,noreferrer');
-    }
-
-}
-
-function OpenProject(link){
-
-    window.open(link, '_blank', 'noopener,noreferrer');
-}
-
-async function OnMenuBtnClick(){
-
-    let menuContainer = document.querySelector('.menu-container');
-
-    let canvasTransition = new CanvasTransitionAnimation(document.querySelector('.menu-canvas'), '#eee', 5, 40, 0.05);
-
-    if(menuContainer.dataset.status === "close"){
-
-        menuContainer.style.display = "block";
-        menuContainer.dataset.status = "open";
-        document.documentElement.style.overflow = "hidden";
-        lenis.stop();
-        await canvasTransition.OpenCanvas();
-        document.querySelector('.menu-content-container').style.opacity = 1;
-    }else{
-
-        menuContainer.dataset.status = "close";
-        document.querySelector('.menu-content-container').style.opacity = 0;
-        await canvasTransition.CloseCanvas();
-        menuContainer.style.display = "none";
-        document.documentElement.style.overflow = "auto";
-        lenis.start();
-    }
-
-}
-
-
-
 
 class CanvasTransitionAnimation {
 
@@ -158,11 +22,18 @@ class CanvasTransitionAnimation {
             this.canvas.height = window.innerHeight;
         }
 
+        this.createShapes();
+    }
+
+    createShapes(){
+
+        this.shapes = [];
+
         const columns = Math.ceil(this.canvas.width / this.canvas.height) * this.shapesMultiplier;
         const shapeWidth = this.canvas.width / columns;
 
-        const rows = Math.ceil(canvas.height / shapeWidth);
-        const shapeHeight = canvas.height / rows;
+        const rows = Math.ceil(this.canvas.height / shapeWidth);
+        const shapeHeight = this.canvas.height / rows;
 
         for (let r = 0; r < rows; r++) {
 
@@ -184,19 +55,18 @@ class CanvasTransitionAnimation {
         this.shuffle(this.shapes);
     }
 
-    /*OpenCanvas(){
+    openCanvas() {
 
-        this.direction = 'open';
-        for (let s = 0; s < this.shapes.length; s++)
-            setTimeout(() => this.turnShapeOn(this.shapes[s]), s * this.stagger);
-
-    }*/
-
-    OpenCanvas() {
         return new Promise((resolve) => {
             
             let finishedShapes = 0;
             this.direction = 'open';
+
+            const onResize = () => {
+                window.removeEventListener('resize', onResize);
+                resolve();
+            };
+            window.addEventListener('resize', onResize);
 
             for (let s = 0; s < this.shapes.length; s++) {
 
@@ -214,12 +84,18 @@ class CanvasTransitionAnimation {
         });
     }
 
-    CloseCanvas(){
+    closeCanvas(){
 
         return new Promise((resolve) => {
             
             let finishedShapes = 0;
             this.direction = 'close';
+
+            const onResize = () => {
+                window.removeEventListener('resize', onResize);
+                resolve();
+            };
+            window.addEventListener('resize', onResize);
 
             for (let s = 0; s < this.shapes.length; s++) {
 
@@ -237,93 +113,6 @@ class CanvasTransitionAnimation {
         });
     }
 
-    TurnOnAll(){
-
-        for (let s = 0; s < this.shapes.length; s++) this.turnShapeOn(this.shapes[s]);
-    }
-
-    TurnOffAll(){
-
-        for (let s = 0; s < this.shapes.length; s++) this.turnShapeOff(this.shapes[s]);
-    }
-
-    /*
-    turnShapeOn(shape) {
-
-        if(!this.canAnimate) return;
-
-        let alpha = 0;  
-        let _this = this;
-
-        function animate() {
-
-            _this.ctx.clearRect(shape.x, shape.y, shape.width, shape.height);
-            
-            alpha += _this.transition;
-            _this.ctx.globalAlpha = Math.min(alpha, 1);
-            _this.ctx.fillStyle = _this.fillColor;
-            _this.ctx.fillRect(shape.x, shape.y, shape.width, shape.height);
-            _this.ctx.globalAlpha = 1;
-
-            if (alpha < 1) requestAnimationFrame(animate);
-            else  shape.on = true;
-            
-        }
-
-        animate();
-    }
-
-    turnShapeOff(shape) {
-
-        if(!this.canAnimate) return;
-
-        let alpha = 1;
-        let _this = this;
-
-        function animate() {
-
-            _this.ctx.clearRect(shape.x, shape.y, shape.width, shape.height);
-            
-            alpha -= _this.transition;
-            _this.ctx.globalAlpha = Math.max(0, alpha);
-            _this.ctx.fillStyle = _this.fillColor;
-            _this.ctx.fillRect(shape.x, shape.y, shape.width, shape.height);
-            _this.ctx.globalAlpha = 1;
-
-            if (alpha > 0) requestAnimationFrame(animate);
-            else shape.on = false;
-            
-        }
-
-        animate();
-    }
-    */
-
-    turnShapeOn(shape) {
-
-        if (!this.canAnimate) return;
-
-        let alpha = 0;
-        const _this = this;
-
-        const rgb = this.hexToRgb(this.fillColor);
-
-        function animate() {
-
-            _this.ctx.clearRect(shape.x, shape.y, shape.width, shape.height);
-            
-            alpha += _this.transition;
-
-            _this.ctx.fillStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`;
-            _this.ctx.fillRect(shape.x, shape.y, shape.width, shape.height);
-
-            if (alpha < 1) requestAnimationFrame(animate);
-            else shape.on = true;
-            
-        }
-        animate();
-    }
-
     changeShapeStatus(shape, status, callback) {
 
         if (!this.canAnimate) return;
@@ -334,6 +123,8 @@ class CanvasTransitionAnimation {
         const rgb = this.hexToRgb(this.fillColor);
 
         function animate() {
+
+            if(!shape) return;
 
             _this.ctx.clearRect(shape.x, shape.y, shape.width, shape.height);
             
@@ -382,9 +173,7 @@ class CanvasTransitionAnimation {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
 
-        if(this.shapes.length == 0) return;  
-
-        this.canAnimate = false;
+        this.createShapes();
 
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -393,6 +182,221 @@ class CanvasTransitionAnimation {
         this.ctx.fillStyle = this.fillColor;
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
+}
+
+
+let lenis;
+
+window.addEventListener('load', () => {
+
+    //Always play first time going down
+    //playUp -> Play the animation when going up if true, it not plays of false
+    //playDown -> Play the animation when going down if true, it not plays if false
+
+    SetCurrentAge();
+
+    let scrollTrigger = {
+
+        triggerDown: 'center 85%',
+        playUp: false,
+        playDown: true,
+        debug: false
+    };
+
+    let animation = new Animations(scrollTrigger);
+
+    animation.create('.about-me-text-container', {
+
+        transition: 0.4,
+        from: { opacity: 0, x: '-100%' },
+        to: { opacity: 1, x: 0 }
+    });
+    animation.create('.about-me-image-wrapper', {
+
+        transition: 0.4,
+        from: { opacity: 0, transform: 'translateX(100%) rotate(-50deg)' },
+        to: { opacity: 1, transform: 'translateX(0) rotate(0deg)' }
+    });
+    animation.create('.work-title, .contacts-title', {
+
+        transition: 0.4,
+        from: { opacity: 0 },
+        to: { opacity: 1 }
+    });
+    animation.create('.work-project-container', {
+
+        transition: 0.4,
+        from: { opacity: 0, scale: 0.7 },   
+        to: { opacity: 1, scale: 1 }
+    });
+    animation.create('.contact-container', {
+
+        from: { opacity: 0, scale: 0 },   
+        to: { opacity: 1, scale: 1 }
+    });
+
+    lenis = new Lenis({duration: 0.7 });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+});
+
+const SetCurrentAge = () => {
+
+    let ageSpan = document.querySelector("#age-span");
+    let birthDate = new Date("January 15, 2004");
+    let today = new Date();
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+    let monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) age--;  
+    
+    ageSpan.innerHTML = age;
+
+};
+
+function OnContactClick(contactContainer){
+
+    if(contactContainer.dataset.name === "email"){
+
+        navigator.clipboard.writeText('ramiro.herlander.ventura@gmail.com')
+        .then(() => {
+
+            alert('Email copied');
+        });
+
+    }else{
+
+        let link = contactContainer.dataset.name == 'github' ? 'https://github.com/Ramiro-Ventura' : 'https://www.linkedin.com/in/ramiro-ventura/';
+        window.open(link, "_blank", 'noopener,noreferrer');
+    }
 
 }
+
+function OpenProject(link){
+
+    window.open(link, '_blank', 'noopener,noreferrer');
+}
+
+
+let canvasTransition = new CanvasTransitionAnimation(document.querySelector('.menu-canvas'), '#eee', 5, 20, 0.07);
+let isAnimating = false;
+
+async function OnMenuBtnClick(){
+
+    let menuContainer = document.querySelector('.menu-container');
+
+    if(menuContainer.dataset.status === "close")
+        OpenMenu();
+    else
+        CloseMenu();
+}
+
+async function OpenMenu(){
+
+    if(isAnimating) return;
+
+    let menuContainer   = document.querySelector('.menu-container');
+    let menuBtn         = document.querySelector('.menu-btn');
+    let menuStrokes     = gsap.utils.toArray('.menu-btn-stroke');
+
+    let duration = 0.5;
+    let yValue = parseInt(getComputedStyle(menuStrokes[0]).height) + parseInt(getComputedStyle(menuBtn).gap);
+
+    beforeOpenCanvas();
+    await canvasTransition.openCanvas();
+    afterOpenCanvas();
+
+
+    function beforeOpenCanvas(){
+
+        const tl = gsap.timeline({
+            onComplete: () => { isAnimating = false; }
+        });
+
+        tl.to(menuStrokes[0], { y: yValue, rotateZ: 45, transformOrigin: "center center", duration: duration, ease: "power2.inOut" })
+        .to(menuStrokes[1], { opacity: 0, duration: duration }, "<")
+        .to(menuStrokes[2], { y: -yValue, rotateZ: -45, transformOrigin: "center center", duration: duration, ease: "power2.inOut" }, "<")
+
+        menuContainer.style.display = "block";
+        menuContainer.dataset.status = "open";
+        //document.documentElement.style.overflow = "hidden";
+        //document.documentElement.style.paddingRight = "15px";
+        lenis.stop();
+        isAnimating = true;
+        //menuBtn.style.marginRight = "15px";
+    }
+
+    function afterOpenCanvas(){
+
+        document.querySelector('.menu-content-container').style.opacity = 1;
+        isAnimating = false;
+
+    }
+}   
+
+function CloseMenu(){
+
+    if(isAnimating) return;
+
+    let menuContainer   = document.querySelector('.menu-container');
+    let menuBtn         = document.querySelector('.menu-btn');
+    let menuStrokes     = gsap.utils.toArray('.menu-btn-stroke');
+
+    let duration = 0.5;
+
+    beforeClosingCanvas();
+    
+    setTimeout(async () => {
+
+        await canvasTransition.closeCanvas();
+        afterClosingCanvas();
+
+    }, 400);
+
+    function beforeClosingCanvas(){
+
+        menuContainer.dataset.status = "close";
+        document.querySelector('.menu-content-container').style.opacity = 0;
+        isAnimating = true;
+    }
+
+    function afterClosingCanvas(){
+
+                const tl = gsap.timeline({
+            onComplete: () => { isAnimating = false; }
+        });
+
+        tl.to([menuStrokes[0], menuStrokes[2]], { y: 0, rotateZ: 0, transformOrigin: "center center", duration: duration, ease: "power2.inOut"})
+        .to(menuStrokes[1], { opacity: 1, duration: duration}, ">-=0.3");
+
+        isAnimating = false;
+        menuContainer.style.display = "none";
+        //document.documentElement.style.overflow = "auto";
+        //document.documentElement.style.paddingRight = "0px";
+        //menuBtn.style.marginRight = "0px";
+        lenis.start();
+    }
+}
+
+function OnMenuItemClick(sectionId){
+
+    let menuContainer = document.querySelector('.menu-container');
+
+    if(menuContainer.dataset.status === "open"){
+
+        let section = document.querySelector(`#${sectionId}`);
+        if(section) section.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => CloseMenu(), 500);
+    }
+
+}
+
+
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-container-hide">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,15 +19,16 @@
 
     <script src="/new-portfolio/animation.js" defer></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
 
 </head>
 <body>    
 
 
     <div class="menu-btn" data-status="close" onclick="OnMenuBtnClick()">
-        <div class="menu-btn-stoke"></div>
-        <div class="menu-btn-stoke"></div>
-        <div class="menu-btn-stoke"></div>
+        <div class="menu-btn-stroke"></div>
+        <div class="menu-btn-stroke"></div>
+        <div class="menu-btn-stroke"></div>
     </div>
 
     <div class="menu-container" data-status="close">
@@ -35,22 +36,23 @@
        <canvas class="menu-canvas"></canvas>
 
         <div class="menu-content-container">
-            <div class="menu-links" onclick="OnMenuItemClick('hero-section')">                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg><p>HOME</p></div>
-            <div class="menu-links" onclick="OnMenuItemClick('hero-section', 'about-me')">      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h3.5" /><path d="M20 21l2 -2l-2 -2" /><path d="M17 17l-2 2l2 2" /></svg><p>ABOUT ME</p></div>
-            <div class="menu-links" onclick="OnMenuItemClick('work-section')">                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 19l2.757 -7.351a1 1 0 0 1 .936 -.649h12.307a1 1 0 0 1 .986 1.164l-.996 5.211a2 2 0 0 1 -1.964 1.625h-14.026a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2h4l3 3h7a2 2 0 0 1 2 2v2" /></svg><p>WORK</p></div>
-            <div class="menu-links" onclick="OnMenuItemClick('contacts-section', 'contacts')">  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28" /></svg><p>CONTACT ME</p></div>
+            <div class="menu-links" onclick="OnMenuItemClick('hero-section')">              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg><p>HOME</p></div>
+            <div class="menu-links" onclick="OnMenuItemClick('about-me-section')">          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h3.5" /><path d="M20 21l2 -2l-2 -2" /><path d="M17 17l-2 2l2 2" /></svg><p>ABOUT ME</p></div>
+            <div class="menu-links" onclick="OnMenuItemClick('work-section')">              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 19l2.757 -7.351a1 1 0 0 1 .936 -.649h12.307a1 1 0 0 1 .986 1.164l-.996 5.211a2 2 0 0 1 -1.964 1.625h-14.026a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2h4l3 3h7a2 2 0 0 1 2 2v2" /></svg><p>WORK</p></div>
+            <div class="menu-links" onclick="OnMenuItemClick('contacts-section')">          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28" /></svg><p>CONTACT ME</p></div>
+            <div class="menu-links" onclick="window.location.replace('/new-portfolio/')">   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-links-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 21l8 0" /><path d="M12 17l0 4" /><path d="M7 4l10 0" /><path d="M17 4v8a5 5 0 0 1 -10 0v-8" /><path d="M3 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /></svg><p>PRO MODE</p></div>
         </div>
 
     </div>
 
-    <section class="hero-section">
+    <section class="hero-section" id="hero-section">
         <h1>
             <p class="hero-name ramiro">Ramiro</p>
             <p class="hero-name ventura">Ventura</p>
         </h1>
     </section>
 
-    <section class="about-me-section">
+    <section class="about-me-section" id="about-me-section">
 
         <div class="about-me-texts-container">
             
@@ -62,9 +64,11 @@
             <div class="about-me-image-container">
                 <div class="about-me-image-wrapper" style="rotate: -5.38deg;">
                     <picture class="about-me-images-picture">
-                        <source media="(width < 768px)"  srcset="/new-portfolio/assets/my_photo_300.webp">
-                        <source media="(width < 1400px)" srcset="/new-portfolio/assets/my_photo_400.webp">
-                        <img loading="lazy" class="about-me-image" src="/new-portfolio/assets/my_photo_550.webp" alt="profile picture">
+                        <source media="(width < 425px)" srcset="/new-portfolio/assets/my_photo_400.webp">
+                        <source media="(width < 992px)" srcset="/new-portfolio/assets/my_photo_550.webp">
+                        <source media="(width < 1200px)" srcset="/new-portfolio/assets/my_photo_300.webp">
+                        <source media="(width < 1400px)" srcset="/new-portfolio/assets/my_photo_550.webp">
+                        <img loading="lazy" class="about-me-image" src="/new-portfolio/assets/my_photo.webp" alt="profile picture">
                     </picture>
                     <p class="about-me-image-text">This is me</p>
                 </div>
@@ -92,9 +96,11 @@
 
                 <div class="about-me-image-wrapper" style="rotate:1.89deg;">
                     <picture class="about-me-images-picture">
-                        <source media="(width < 768px)"  srcset="/new-portfolio/assets/my_school_300.webp">
-                        <source media="(width < 1400px)" srcset="/new-portfolio/assets/my_school_400.webp">
-                        <img class="about-me-image" src="/new-portfolio/assets/my_school_550.webp" alt="my school">
+                        <source media="(width < 425px)" srcset="/new-portfolio/assets/my_school_400.webp">
+                        <source media="(width < 992px)" srcset="/new-portfolio/assets/my_school_550.webp">
+                        <source media="(width < 1200px)" srcset="/new-portfolio/assets/my_school_300.webp">
+                        <source media="(width < 1400px)" srcset="/new-portfolio/assets/my_school_550.webp">
+                        <img class="about-me-image" src="/new-portfolio/assets/my_school.webp" alt="my school">
                     </picture>
                     <p class="about-me-image-text">My School</p>
                 </div>
@@ -115,9 +121,11 @@
             <div class="about-me-image-container">
                 <div class="about-me-image-wrapper" style="rotate:-7.82102deg;">
                      <picture class="about-me-images-picture">
-                        <source media="(width < 768px)"  srcset="/new-portfolio/assets/work_300.webp">
-                        <source media="(width < 1400px)" srcset="/new-portfolio/assets/work_400.webp">
-                        <img class="about-me-image" src="/new-portfolio/assets/work_550.webp" alt="work">
+                        <source media="(width < 425px)" srcset="/new-portfolio/assets/work_400.webp">
+                        <source media="(width < 992px)" srcset="/new-portfolio/assets/work_550.webp">
+                        <source media="(width < 1200px)" srcset="/new-portfolio/assets/work_300.webp">
+                        <source media="(width < 1400px)" srcset="/new-portfolio/assets/work_550.webp">
+                        <img class="about-me-image" src="/new-portfolio/assets/work.webp" alt="work">
                     </picture>
                     <p class="about-me-image-text">Coffee. Code. Debug. Repeat.</p>
                 </div>
@@ -136,9 +144,11 @@
             <div class="about-me-image-container">
                 <div class="about-me-image-wrapper" style="rotate:6.68deg;">
                     <picture class="about-me-images-picture">
-                        <source media="(width < 768px)"  srcset="/new-portfolio/assets/awards_300.webp">
-                        <source media="(width < 1400px)" srcset="/new-portfolio/assets/awards_400.webp">
-                        <img class="about-me-image" src="/new-portfolio/assets/awards_550.webp" alt="awards">
+                        <source media="(width < 425px)" srcset="/new-portfolio/assets/awards_400.webp">
+                        <source media="(width < 992px)" srcset="/new-portfolio/assets/awards_550.webp">
+                        <source media="(width < 1200px)" srcset="/new-portfolio/assets/awards_300.webp">
+                        <source media="(width < 1400px)" srcset="/new-portfolio/assets/awards_550.webp">
+                        <img class="about-me-image" src="/new-portfolio/assets/awards.webp" alt="awards">
                     </picture>
                     <p class="about-me-image-text">Academic Highlights</p>
                 </div>
@@ -151,16 +161,18 @@
                 <h2 class="about-me-title">🌊 Interests and Hobbies</h2>
                 <div class="about-me-text"><p>I'm passionate about <b>pop culture</b>, from music to movies and series.</p>
                     <br><p>I enjoy playing <b>electric guitar</b>, solving the <b>Rubik's Cube</b>, and <b>reading</b>, but what I really like is to project and develop <b>Full Stack Apps</b> as well develop some fun tools.</p>
-                    <br><p>I love water sports like <b>Bodyboard</b>, I hate running and I <b>love</b> the going to the <b>beach</b></p>
+                    <br><p>I love water sports like <b>Bodyboard</b>, I hate running and I <b>love</b> going to the <b>beach</b></p>
                 </div>
             </div>
 
             <div class="about-me-image-container">
                 <div class="about-me-image-wrapper" style="rotate:-4.71deg;">
                     <picture class="about-me-images-picture">
-                        <source media="(width < 768px)"  srcset="/new-portfolio/assets/bodyboard_300.webp">
-                        <source media="(width < 1400px)" srcset="/new-portfolio/assets/bodyboard_400.webp">
-                        <img class="about-me-image" src="/new-portfolio/assets/bodyboard_550.webp" alt="hobbies">
+                        <source media="(width < 425px)" srcset="/new-portfolio/assets/bodyboard_400.webp">
+                        <source media="(width < 992px)" srcset="/new-portfolio/assets/bodyboard_550.webp">
+                        <source media="(width < 1200px)" srcset="/new-portfolio/assets/bodyboard_300.webp">
+                        <source media="(width < 1400px)" srcset="/new-portfolio/assets/bodyboard_550.webp">
+                        <img class="about-me-image" src="/new-portfolio/assets/bodyboard.webp" alt="hobbies">
                     </picture>
                     <p class="about-me-image-text">This is not me</p>
                 </div>
@@ -169,13 +181,13 @@
 
     </section>
 
-    <section class="work-section">
+    <section class="work-section" id="work-section">
 
         <h2 class="work-title">WORK</h2>
 
         <div class="work-projects-container">
 
-            <div class="work-project-container" onclick="OpenProject('https:\\wavetunes.ramiro-ventura.com')">
+            <div class="work-project-container" onclick="OpenProject('https://wavetunes.ramiro-ventura.com')">
                  <picture class="work-project-image-picture">
                     <source media="(width < 576px)"  srcset="/new-portfolio/assets/wavetunes_750.webp">
                     <source media="(width < 992px)" srcset="/new-portfolio/assets/wavetunes_950.webp">
@@ -187,7 +199,7 @@
                 </div>
             </div>
 
-            <div class="work-project-container" onclick="OpenProject('https:\\easyqrcode.ramiro-ventura.com')">
+            <div class="work-project-container" onclick="OpenProject('https://easyqrcode.ramiro-ventura.com')">
                 <picture class="work-project-image-picture">
                     <source media="(width < 576px)"  srcset="/new-portfolio/assets/easyqrcode_750.webp">
                     <source media="(width < 992px)" srcset="/new-portfolio/assets/easyqrcode_950.webp">
@@ -199,7 +211,7 @@
                 </div>
             </div>
 
-            <div class="work-project-container" onclick="OpenProject('https:\\complex.ramiro-ventura.com')">
+            <div class="work-project-container" onclick="OpenProject('https://complex.ramiro-ventura.com')">
                 <picture class="work-project-image-picture">
                     <source media="(width < 576px)"  srcset="/new-portfolio/assets/complex_750.webp">
                     <source media="(width < 992px)" srcset="/new-portfolio/assets/complex_950.webp">
@@ -211,7 +223,7 @@
                 </div>
             </div>
 
-            <div class="work-project-container" onclick="OpenProject('https:\\afterlink.ramiro-ventura.com')">
+            <div class="work-project-container" onclick="OpenProject('https://afterlink.ramiro-ventura.com')">
                 <picture class="work-project-image-picture">
                     <source media="(width < 576px)"  srcset="/new-portfolio/assets/afterlink_750.webp">
                     <source media="(width < 992px)" srcset="/new-portfolio/assets/afterlink_950.webp">
@@ -223,7 +235,7 @@
                 </div>
             </div>
 
-            <div class="work-project-container" onclick="OpenProject('https:\\coloris.ramiro-ventura.com')">
+            <div class="work-project-container" onclick="OpenProject('https://coloris.ramiro-ventura.com')">
                 
                 <picture class="work-project-image-picture">
                     <source media="(width < 576px)"  srcset="/new-portfolio/assets/coloris_750.webp">
@@ -240,7 +252,7 @@
 
     </section>
 
-    <section class="contacts-section">
+    <section class="contacts-section" id="contacts-section">
 
         <h2 class="contacts-title">Let’s Talk</h2>
 
