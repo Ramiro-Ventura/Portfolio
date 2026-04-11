@@ -1,6 +1,6 @@
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => CheckVersion());
 
-    //CheckVersion();
+window.addEventListener("load", () => {
     
     gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);  
 
@@ -14,9 +14,20 @@ window.addEventListener("load", () => {
 
 });
 
-//window.addEventListener('resize', () => CheckVersion());
+window.addEventListener('resize', () => CheckVersion());
     
-const CheckVersion = () => { if (window.innerWidth < 992) window.location.replace('/new-portfolio/mobile'); };
+const CheckVersion = () => { 
+    
+    if (isMobile() && !sessionStorage.getItem('isMobile')) {
+        
+        window.location.replace('/new-portfolio/mobile'); 
+        sessionStorage.setItem('isMobile', true);
+
+    }
+
+};
+
+const isMobile = () => { return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent) && window.innerWidth < 768; };
 
 const SetCurrentAge = () => {
 
@@ -528,14 +539,11 @@ function MenuAnimations(menuBtn){
 
     if(isAnimating) return;
 
-    if(menuBtn.dataset.status == 'close'){
-
+    if(menuBtn.dataset.status == 'close')
         OpenMenu(menuBtn);
-
-    } else {
-
+    else 
         CloseMenu(menuBtn);
-    }
+    
 }
 
 function OnMenuItemClick(timelineId, label){
