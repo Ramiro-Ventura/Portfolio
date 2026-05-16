@@ -265,7 +265,8 @@
 
 .contacts-section {
 
-    min-height: 100vh;
+    min-height: 100vh; /* fallback */
+    min-height: 100svh; /* solução */
     height: fit-content;
     position: relative;
     display: flex;
